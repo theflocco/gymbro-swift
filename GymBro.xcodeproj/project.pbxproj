@@ -9,23 +9,43 @@
 /* Begin PBXBuildFile section */
 		E4E30B4023B747C600224A72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E30B3F23B747C600224A72 /* AppDelegate.swift */; };
 		E4E30B4223B747C600224A72 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E30B4123B747C600224A72 /* SceneDelegate.swift */; };
-		E4E30B4523B747C600224A72 /* GymBro.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E4E30B4323B747C600224A72 /* GymBro.xcdatamodeld */; };
 		E4E30B4723B747C600224A72 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E30B4623B747C600224A72 /* ContentView.swift */; };
 		E4E30B4923B747C900224A72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4E30B4823B747C900224A72 /* Assets.xcassets */; };
 		E4E30B4C23B747C900224A72 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4E30B4B23B747C900224A72 /* Preview Assets.xcassets */; };
 		E4E30B4F23B747C900224A72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4E30B4D23B747C900224A72 /* LaunchScreen.storyboard */; };
+		E4E30B5823B7486600224A72 /* WorkoutHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E30B5723B7486600224A72 /* WorkoutHistoryView.swift */; };
+		E4E30B5A23B7488100224A72 /* RootTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E30B5923B7488100224A72 /* RootTabView.swift */; };
+		E4E30B5C23B7488800224A72 /* AddWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E30B5B23B7488800224A72 /* AddWorkoutView.swift */; };
+		E4E30B5E23B7489000224A72 /* WorkoutDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E30B5D23B7489000224A72 /* WorkoutDetailView.swift */; };
+		E4E30B6123B748AD00224A72 /* GymBro.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E4E30B5F23B748AD00224A72 /* GymBro.xcdatamodeld */; };
+		E4E30B6523B748B800224A72 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E30B6323B748B700224A72 /* Workout.swift */; };
+		E4E30B6623B748B800224A72 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E30B6423B748B700224A72 /* Exercise.swift */; };
+		E4E30B6923B748EC00224A72 /* WorkoutCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E30B6823B748EB00224A72 /* WorkoutCard.swift */; };
+		E4E30B6B23B7490D00224A72 /* ExerciseDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E30B6A23B7490D00224A72 /* ExerciseDetailCell.swift */; };
+		E4E30B6D23B7492100224A72 /* ExercisePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E30B6C23B7492100224A72 /* ExercisePickerView.swift */; };
+		E4E30B7023B7498800224A72 /* ExerciseTypeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E30B6F23B7498800224A72 /* ExerciseTypeData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E4E30B3C23B747C600224A72 /* GymBro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GymBro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4E30B3F23B747C600224A72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4E30B4123B747C600224A72 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E4E30B4423B747C600224A72 /* GymBro.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymBro.xcdatamodel; sourceTree = "<group>"; };
 		E4E30B4623B747C600224A72 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E4E30B4823B747C900224A72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E4E30B4B23B747C900224A72 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E4E30B4E23B747C900224A72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E4E30B5023B747C900224A72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4E30B5723B7486600224A72 /* WorkoutHistoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutHistoryView.swift; sourceTree = "<group>"; };
+		E4E30B5923B7488100224A72 /* RootTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootTabView.swift; sourceTree = "<group>"; };
+		E4E30B5B23B7488800224A72 /* AddWorkoutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddWorkoutView.swift; sourceTree = "<group>"; };
+		E4E30B5D23B7489000224A72 /* WorkoutDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutDetailView.swift; sourceTree = "<group>"; };
+		E4E30B6023B748AD00224A72 /* GymBro.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymBro.xcdatamodel; sourceTree = "<group>"; };
+		E4E30B6323B748B700224A72 /* Workout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
+		E4E30B6423B748B700224A72 /* Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
+		E4E30B6823B748EB00224A72 /* WorkoutCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutCard.swift; sourceTree = "<group>"; };
+		E4E30B6A23B7490D00224A72 /* ExerciseDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseDetailCell.swift; sourceTree = "<group>"; };
+		E4E30B6C23B7492100224A72 /* ExercisePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExercisePickerView.swift; sourceTree = "<group>"; };
+		E4E30B6F23B7498800224A72 /* ExerciseTypeData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseTypeData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +78,17 @@
 		E4E30B3E23B747C600224A72 /* GymBro */ = {
 			isa = PBXGroup;
 			children = (
+				E4E30B6E23B7498000224A72 /* data */,
+				E4E30B6723B748C800224A72 /* cards */,
+				E4E30B6223B748B700224A72 /* model */,
+				E4E30B5623B7481400224A72 /* views */,
 				E4E30B3F23B747C600224A72 /* AppDelegate.swift */,
 				E4E30B4123B747C600224A72 /* SceneDelegate.swift */,
 				E4E30B4623B747C600224A72 /* ContentView.swift */,
 				E4E30B4823B747C900224A72 /* Assets.xcassets */,
 				E4E30B4D23B747C900224A72 /* LaunchScreen.storyboard */,
 				E4E30B5023B747C900224A72 /* Info.plist */,
-				E4E30B4323B747C600224A72 /* GymBro.xcdatamodeld */,
+				E4E30B5F23B748AD00224A72 /* GymBro.xcdatamodeld */,
 				E4E30B4A23B747C900224A72 /* Preview Content */,
 			);
 			path = GymBro;
@@ -76,6 +100,44 @@
 				E4E30B4B23B747C900224A72 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E4E30B5623B7481400224A72 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				E4E30B5723B7486600224A72 /* WorkoutHistoryView.swift */,
+				E4E30B5923B7488100224A72 /* RootTabView.swift */,
+				E4E30B5B23B7488800224A72 /* AddWorkoutView.swift */,
+				E4E30B5D23B7489000224A72 /* WorkoutDetailView.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		E4E30B6223B748B700224A72 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				E4E30B6323B748B700224A72 /* Workout.swift */,
+				E4E30B6423B748B700224A72 /* Exercise.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		E4E30B6723B748C800224A72 /* cards */ = {
+			isa = PBXGroup;
+			children = (
+				E4E30B6C23B7492100224A72 /* ExercisePickerView.swift */,
+				E4E30B6823B748EB00224A72 /* WorkoutCard.swift */,
+				E4E30B6A23B7490D00224A72 /* ExerciseDetailCell.swift */,
+			);
+			path = cards;
+			sourceTree = "<group>";
+		};
+		E4E30B6E23B7498000224A72 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				E4E30B6F23B7498800224A72 /* ExerciseTypeData.swift */,
+			);
+			path = data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,10 +211,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4E30B4523B747C600224A72 /* GymBro.xcdatamodeld in Sources */,
+				E4E30B5C23B7488800224A72 /* AddWorkoutView.swift in Sources */,
+				E4E30B6D23B7492100224A72 /* ExercisePickerView.swift in Sources */,
 				E4E30B4023B747C600224A72 /* AppDelegate.swift in Sources */,
+				E4E30B7023B7498800224A72 /* ExerciseTypeData.swift in Sources */,
+				E4E30B5E23B7489000224A72 /* WorkoutDetailView.swift in Sources */,
+				E4E30B6923B748EC00224A72 /* WorkoutCard.swift in Sources */,
+				E4E30B6123B748AD00224A72 /* GymBro.xcdatamodeld in Sources */,
 				E4E30B4723B747C600224A72 /* ContentView.swift in Sources */,
+				E4E30B6B23B7490D00224A72 /* ExerciseDetailCell.swift in Sources */,
+				E4E30B6623B748B800224A72 /* Exercise.swift in Sources */,
+				E4E30B6523B748B800224A72 /* Workout.swift in Sources */,
 				E4E30B4223B747C600224A72 /* SceneDelegate.swift in Sources */,
+				E4E30B5A23B7488100224A72 /* RootTabView.swift in Sources */,
+				E4E30B5823B7486600224A72 /* WorkoutHistoryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,13 +420,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		E4E30B4323B747C600224A72 /* GymBro.xcdatamodeld */ = {
+		E4E30B5F23B748AD00224A72 /* GymBro.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				E4E30B4423B747C600224A72 /* GymBro.xcdatamodel */,
+				E4E30B6023B748AD00224A72 /* GymBro.xcdatamodel */,
 			);
-			currentVersion = E4E30B4423B747C600224A72 /* GymBro.xcdatamodel */;
-			path = GymBro.xcdatamodeld;
+			currentVersion = E4E30B6023B748AD00224A72 /* GymBro.xcdatamodel */;
+			name = GymBro.xcdatamodeld;
+			path = ../../../GymBro/GymBro/GymBro.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
