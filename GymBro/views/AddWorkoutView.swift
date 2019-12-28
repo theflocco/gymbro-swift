@@ -106,7 +106,7 @@ struct AddWorkoutView: View {
 
                     }) {
                     
-                        Image(systemName: "plus.app.fill")
+                        Image(systemName: "plus.square.fill.on.square.fill")
                             .font(.largeTitle)
                             .foregroundColor(.blue)
                         

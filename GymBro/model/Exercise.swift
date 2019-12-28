@@ -10,7 +10,17 @@ import Foundation
 import CoreData
 
 enum ExerciseType: String {
-    case squat = "Squat", deadlift = "Dead Lift" , benchpress = "Bench Press", shoulderpress = "Shoulder Press", militarypress = "Military Press"
+    case squat = "Squat",
+    deadlift = "Dead Lift" ,
+    benchpress = "Bench Press",
+    shoulderpress = "Shoulder Press",
+    militarypress = "Military Press",
+    arnoldpress = "Arnold Press",
+    sumosquat = "Sumo Squat",
+    chinup = "Chin-up",
+    pullup = "Pull-up",
+    pushup = "Push-up"
+    
 }
 public class Exercise: NSManagedObject, Identifiable {
     
@@ -19,3 +29,15 @@ public class Exercise: NSManagedObject, Identifiable {
     @NSManaged public var weight: NSNumber?
     
 }
+
+let exerciseTypeData: [ExerciseType] = [
+    ExerciseType.benchpress,
+    ExerciseType.deadlift,
+    ExerciseType.militarypress,
+    ExerciseType.squat,
+    ExerciseType.arnoldpress,
+    ExerciseType.sumosquat,
+    ExerciseType.chinup,
+    ExerciseType.pullup,
+    ExerciseType.pushup
+]

@@ -29,7 +29,7 @@ struct RootTabView: View {
                 }
                 .tabItem {
                     VStack {
-                        Image(systemName: "plus.circle.fill")
+                        Image(systemName: "plus.rectangle.fill")
                         Text("Add Workout")
                     }
             }.tag(1)
