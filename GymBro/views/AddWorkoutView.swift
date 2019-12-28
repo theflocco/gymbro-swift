@@ -84,7 +84,7 @@ struct AddWorkoutView: View {
                         TextField("Add Weight", text: self.$weight) {
                             UIApplication.shared.endEditing()
                         }
-                        .keyboardType(.default)
+                        .keyboardType(.numberPad)
                         
                     }
                     Button(action: {
