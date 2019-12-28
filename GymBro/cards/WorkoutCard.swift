@@ -41,7 +41,7 @@ struct WorkoutCard: View {
         let dateString = self.formatter.string(from: workout.date!)
         let view = ZStack {
             RoundedRectangle(cornerRadius: 20)
-                .frame(width: 350.0, height: 160.0)
+                .frame(width: 300.0, height: 140.0)
                 .foregroundColor(.clear)
             .background(LinearGradient(gradient: Gradient(colors: [cardColor, cardColorFinish]), startPoint: .bottomLeading, endPoint: .topTrailing))
             .shadow(radius: 5.0)
