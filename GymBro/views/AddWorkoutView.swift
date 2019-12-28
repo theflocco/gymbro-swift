@@ -38,74 +38,82 @@ struct AddWorkoutView: View {
     var body: some View {
         return NavigationView {
             ScrollView {
-                HStack {
-                    Text("Workout name: ")
-                        .font(.headline)
-                        .padding()
-                    TextField("Name your workout", text: self.$workoutName) {
-                        UIApplication.shared.endEditing()
+                Button(action: {
+                    self.showModal.toggle()
+                }) {
+                    if exercisePicked {
+                        Text(self.pickedExerciseType!.rawValue)
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
+                    } else {
+                        
+                        Text("Select Exercise")
                     }
+                }.sheet(isPresented: self.$showModal, content: {
+                    ExercisePickerView(didSelectExerciseType: { exerciseType in
+                        print(exerciseType)
+                        self.pickedExerciseType = exerciseType
+                        self.exercisePicked = true
+                        
+                    })
+                })
+                VStack(alignment: .center) {
+                    HStack {
+                        VStack(alignment: HorizontalAlignment.leading) {
+                            Text("Workout name: ")
+                                .font(.headline)
+                                .padding(.bottom, 8)
+                                Text("Repetitions: ")
+                                    .font(.headline)
+                                    .padding(.bottom, 8)
+
+                                Text("Weight: ")
+                                    .font(.headline)
+                                    .padding(.bottom, 8)
+                        }
+                        .padding(.leading, 8)
+                        Spacer()
+                        VStack(alignment: HorizontalAlignment.trailing) {
+                            TextField("Name your workout", text: self.$workoutName) {
+                                UIApplication.shared.endEditing()
+                                
+                            }
+                            
+                            TextField("Add Repetitions", text: self.$repetitions) {
+                                UIApplication.shared.endEditing()
+                            }
+                            .keyboardType(.numberPad)
+                            TextField("Add Weight", text: self.$weight) {
+                                UIApplication.shared.endEditing()
+                            }
+                            .keyboardType(.numberPad)
+                        }
+                        .padding()
+
+                    }
+
+                }
+                .lineLimit(nil)
+                .multilineTextAlignment(.center)
+                Button(action: {
+                    if (!self.repetitions.isEmpty && !self.weight.isEmpty) {
+                        if let unwrappedExerciseType = self.pickedExerciseType {
+                            self.submittedExercises.append(submitExercise(repetitions: self.repetitions, weight: self.weight, pickedExerciseType: unwrappedExerciseType, managedObjectContext: self.managedObjectContext))
+                        }
+                    } else {
+                        self.showingAlert = true
+                    }
+
+                }) {
+                
+                    Image(systemName: "plus.app.fill")
+                        .font(.largeTitle)
+                        .foregroundColor(.blue)
+                    
+                }.alert(isPresented: $showingAlert) {
+                    Alert(title: Text("Important message"), message: Text("Pick an exercise & fill in repetitions & weight"), dismissButton: .default(Text("Got it!")))
                 }
                 
-                VStack {
-                    Button(action: {
-                        self.showModal.toggle()
-                    }) {
-                        if exercisePicked {
-                            Text(self.pickedExerciseType!.rawValue)
-                                .font(.largeTitle)
-                                .fontWeight(.bold)
-                        } else {
-                            
-                            Text("Select Exercise")
-                        }
-                    }.sheet(isPresented: self.$showModal, content: {
-                        ExercisePickerView(didSelectExerciseType: { exerciseType in
-                            print(exerciseType)
-                            self.pickedExerciseType = exerciseType
-                            self.exercisePicked = true
-                            
-                        })
-                    })
-                    
-                    HStack {
-                        Text("Repetitions: ")
-                            .font(.headline)
-                            .padding()
-                        TextField("Add Repetitions", text: self.$repetitions) {
-                            UIApplication.shared.endEditing()
-                        }
-                        .keyboardType(.numberPad)
-                    }
-                    HStack {
-                        Text("Weight: ")
-                            .font(.headline)
-                            .padding()
-                        TextField("Add Weight", text: self.$weight) {
-                            UIApplication.shared.endEditing()
-                        }
-                        .keyboardType(.numberPad)
-                        
-                    }
-                    Button(action: {
-                        if (!self.repetitions.isEmpty && !self.weight.isEmpty) {
-                            if let unwrappedExerciseType = self.pickedExerciseType {
-                                self.submittedExercises.append(submitExercise(repetitions: self.repetitions, weight: self.weight, pickedExerciseType: unwrappedExerciseType, managedObjectContext: self.managedObjectContext))
-                            }
-                        } else {
-                            self.showingAlert = true
-                        }
-
-                    }) {
-                    
-                        Image(systemName: "plus.app.fill")
-                            .font(.largeTitle)
-                            .foregroundColor(.blue)
-                        
-                    }.alert(isPresented: $showingAlert) {
-                        Alert(title: Text("Important message"), message: Text("Pick an exercise & fill in repetitions & weight"), dismissButton: .default(Text("Got it!")))
-                    }
-                }
                 if submittedExercises.count > 0 {
                     VStack {
                         ForEach(submittedExercises, id: \.self) {
