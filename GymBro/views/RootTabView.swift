@@ -20,7 +20,7 @@ struct RootTabView: View {
                     Image(systemName: "list.bullet")
                     Text("Log")
                 }.tag(0)
-                WorkoutHistoryView().environment(\.managedObjectContext, managedObjectContext)
+            WorkoutHistoryView().environment(\.managedObjectContext, managedObjectContext)
                 .onAppear {
                     print("Hallo")
                     DispatchQueue.main.async {

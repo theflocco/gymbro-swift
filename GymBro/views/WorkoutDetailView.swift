@@ -21,13 +21,12 @@ struct WorkoutDetailView: View {
             ScrollView(showsIndicators: false) {
                 Text("Workout " + workout.name!).bold()
                 Text("\(workout.date!, formatter: dateFormatter)")
-                ForEach(exerciseList, id: \.self) { (exercise: Exercise) in
+                ForEach(exerciseList, id: \.self) { (pickedExercise: Exercise) in
                     VStack {
-                        ExerciseDetailCell(exercise: exercise)
+                        ExerciseDetailCell(exercise: pickedExercise)
                     }
                 }
                 Button(action: { self.presentation.wrappedValue.dismiss() }) { Text("Dismiss") }
-
             }
         
         }

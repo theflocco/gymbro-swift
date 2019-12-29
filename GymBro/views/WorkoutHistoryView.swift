@@ -21,12 +21,12 @@ struct WorkoutHistoryView: View {
         
         NavigationView {
                     
-            List {
+            ScrollView {
                 ForEach(workoutItems, id: \.self ) { pickedWorkout in
                         Button(action: {
                             self.showModal.toggle()
                         }) {
-                            WorkoutCard(workout: pickedWorkout).padding(.leading, 20)
+                            WorkoutCard(workout: pickedWorkout)
                             .deleteDisabled(true)
                         }.sheet(isPresented: self.$showModal, onDismiss: {
                             self.showModal = false
