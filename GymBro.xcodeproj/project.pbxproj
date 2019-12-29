@@ -24,6 +24,7 @@
 		E4E30B6B23B7490D00224A72 /* ExerciseDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E30B6A23B7490D00224A72 /* ExerciseDetailCell.swift */; };
 		E4E30B6D23B7492100224A72 /* ExercisePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E30B6C23B7492100224A72 /* ExercisePickerView.swift */; };
 		E4E6ECF223B8D38B00CC364E /* KeyboardResponsiveModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E6ECF123B8D38B00CC364E /* KeyboardResponsiveModifier.swift */; };
+		E4E6ECF423B8F80900CC364E /* SettingsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E6ECF323B8F80900CC364E /* SettingsPage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		E4E30B6A23B7490D00224A72 /* ExerciseDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseDetailCell.swift; sourceTree = "<group>"; };
 		E4E30B6C23B7492100224A72 /* ExercisePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExercisePickerView.swift; sourceTree = "<group>"; };
 		E4E6ECF123B8D38B00CC364E /* KeyboardResponsiveModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardResponsiveModifier.swift; sourceTree = "<group>"; };
+		E4E6ECF323B8F80900CC364E /* SettingsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				E4E30B5923B7488100224A72 /* RootTabView.swift */,
 				E4E30B5B23B7488800224A72 /* AddWorkoutView.swift */,
 				E4E30B5D23B7489000224A72 /* WorkoutDetailView.swift */,
+				E4E6ECF323B8F80900CC364E /* SettingsPage.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 				E4E30B6123B748AD00224A72 /* GymBro.xcdatamodeld in Sources */,
 				E4E30B4723B747C600224A72 /* ContentView.swift in Sources */,
 				E4E30B6B23B7490D00224A72 /* ExerciseDetailCell.swift in Sources */,
+				E4E6ECF423B8F80900CC364E /* SettingsPage.swift in Sources */,
 				E4E30B6623B748B800224A72 /* Exercise.swift in Sources */,
 				E4E30B6523B748B800224A72 /* Workout.swift in Sources */,
 				E4E30B4223B747C600224A72 /* SceneDelegate.swift in Sources */,

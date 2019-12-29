@@ -21,6 +21,12 @@ struct WorkoutHistoryView: View {
         
         NavigationView {
         
+            if (workoutItems.count == 0) {
+                Text("Add some Workouts!")
+                    .bold().font(.largeTitle)
+            } else {
+                
+        
                 List {
                         ForEach(workoutItems, id: \.self ) { pickedWorkout in
                                 Button(action: {
@@ -45,6 +51,12 @@ struct WorkoutHistoryView: View {
                 .navigationBarItems(trailing:
                     EditButton()
                 )
+                .navigationBarItems(leading: Button(action: {
+                        
+                    }) {
+                        Text("Analytics")
+                    })
+            }
 
         }
                 

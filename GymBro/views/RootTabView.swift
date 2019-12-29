@@ -36,10 +36,10 @@ struct RootTabView: View {
                 .onTapGesture {
                     self.showModal.toggle()
             }
-            Text("Analytics Page")
+            SettingsPage()
                 .tabItem {
-                    Image(systemName: "a.square.fill")
-                    Text("Analytics")
+                    Image(systemName: "gear")
+                    Text("Settings")
             }.tag(2)
         }.sheet(isPresented: self.$showModal) { AddWorkoutView(submittedExercises: []).environment(\.managedObjectContext, self.managedObjectContext)
             .onAppear() {
