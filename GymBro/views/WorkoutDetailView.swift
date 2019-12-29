@@ -27,7 +27,7 @@ struct WorkoutDetailView: View {
                     }
                 }
                 Button(action: { self.presentation.wrappedValue.dismiss() }) { Text("Dismiss") }
-            }
+            }.keyboardResponsive()
         
         }
     .navigationBarTitle("WorkoutDetailView")

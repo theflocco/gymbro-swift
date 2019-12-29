@@ -23,6 +23,7 @@
 		E4E30B6923B748EC00224A72 /* WorkoutCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E30B6823B748EB00224A72 /* WorkoutCard.swift */; };
 		E4E30B6B23B7490D00224A72 /* ExerciseDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E30B6A23B7490D00224A72 /* ExerciseDetailCell.swift */; };
 		E4E30B6D23B7492100224A72 /* ExercisePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E30B6C23B7492100224A72 /* ExercisePickerView.swift */; };
+		E4E6ECF223B8D38B00CC364E /* KeyboardResponsiveModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E6ECF123B8D38B00CC364E /* KeyboardResponsiveModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		E4E30B6823B748EB00224A72 /* WorkoutCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutCard.swift; sourceTree = "<group>"; };
 		E4E30B6A23B7490D00224A72 /* ExerciseDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseDetailCell.swift; sourceTree = "<group>"; };
 		E4E30B6C23B7492100224A72 /* ExercisePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExercisePickerView.swift; sourceTree = "<group>"; };
+		E4E6ECF123B8D38B00CC364E /* KeyboardResponsiveModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardResponsiveModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 		E4E30B3E23B747C600224A72 /* GymBro */ = {
 			isa = PBXGroup;
 			children = (
+				E4E6ECF023B8D37D00CC364E /* util */,
 				E4E30B6723B748C800224A72 /* cards */,
 				E4E30B6223B748B700224A72 /* model */,
 				E4E30B5623B7481400224A72 /* views */,
@@ -127,6 +130,14 @@
 				E4E30B6A23B7490D00224A72 /* ExerciseDetailCell.swift */,
 			);
 			path = cards;
+			sourceTree = "<group>";
+		};
+		E4E6ECF023B8D37D00CC364E /* util */ = {
+			isa = PBXGroup;
+			children = (
+				E4E6ECF123B8D38B00CC364E /* KeyboardResponsiveModifier.swift */,
+			);
+			path = util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,6 +216,7 @@
 				E4E30B4023B747C600224A72 /* AppDelegate.swift in Sources */,
 				E4E30B5E23B7489000224A72 /* WorkoutDetailView.swift in Sources */,
 				E4E30B6923B748EC00224A72 /* WorkoutCard.swift in Sources */,
+				E4E6ECF223B8D38B00CC364E /* KeyboardResponsiveModifier.swift in Sources */,
 				E4E30B6123B748AD00224A72 /* GymBro.xcdatamodeld in Sources */,
 				E4E30B4723B747C600224A72 /* ContentView.swift in Sources */,
 				E4E30B6B23B7490D00224A72 /* ExerciseDetailCell.swift in Sources */,

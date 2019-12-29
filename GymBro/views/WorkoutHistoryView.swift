@@ -20,30 +20,34 @@ struct WorkoutHistoryView: View {
     var body: some View {
         
         NavigationView {
-                    
-            ScrollView {
-                ForEach(workoutItems, id: \.self ) { pickedWorkout in
-                        Button(action: {
-                            self.showModal.toggle()
-                        }) {
-                            WorkoutCard(workout: pickedWorkout)
-                            .deleteDisabled(true)
-                        }.sheet(isPresented: self.$showModal, onDismiss: {
-                            self.showModal = false
-                        }, content: {
-                            return WorkoutDetailView(workout: pickedWorkout)
-                            })
+        
+                List {
+                        ForEach(workoutItems, id: \.self ) { pickedWorkout in
+                                Button(action: {
+                                    self.showModal.toggle()
+                                }) {
+                                    WorkoutCard(workout: pickedWorkout)
+                                    .deleteDisabled(true)
+                                }.sheet(isPresented: self.$showModal, onDismiss: {
+                                    self.showModal = false
+                                }, content: {
+                                    return WorkoutDetailView(workout: pickedWorkout)
+                                })
+                                    
 
-                }.onDelete(perform: deleteItem)
-            }
-            .navigationBarTitle("Your Workouts")
+                    }.onDelete(perform: deleteItem)
 
-            .navigationBarItems(trailing:
-                EditButton()
-            )
-                    
 
                 }
+                .padding(.leading, 50)
+                .navigationBarTitle("Your Workouts")
+
+                .navigationBarItems(trailing:
+                    EditButton()
+                )
+
+        }
+                
     }
     
     func deleteItem(indexSet: IndexSet) {

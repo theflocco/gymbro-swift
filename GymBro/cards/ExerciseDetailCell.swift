@@ -15,7 +15,6 @@ struct ExerciseDetailCell: View {
     @State private var repField: String = ""
     @State private var weightField: String = ""
     @State var inEditMode: Bool = false
-    
     func save() {
         self.exercise.repetitions = Int(repField) as! NSNumber
         self.exercise.weight = Int(weightField) as! NSNumber
