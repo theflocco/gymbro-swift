@@ -8,58 +8,62 @@
 
 import SwiftUI
 
+extension UIScreen{
+   static let screenWidth = UIScreen.main.bounds.size.width
+   static let screenHeight = UIScreen.main.bounds.size.height
+   static let screenSize = UIScreen.main.bounds.size
+}
+
 struct WorkoutHistoryView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(fetchRequest: Workout.getAllWorkoutItems()) var workoutItems: FetchedResults<Workout>
     @State private var showModal: Bool = false;
     
+    let WORKOUT_CARD_WIDTH: CGFloat = 300
+    
     
     init() {
-          UITableView.appearance().separatorColor = .clear
-      }
+        UITableView.appearance().separatorColor = .clear
+    }
     var body: some View {
-        
         NavigationView {
-        
             if (workoutItems.count == 0) {
                 Text("Add some Workouts!")
                     .bold().font(.largeTitle)
             } else {
-                
-        
+            
                 List {
-                        ForEach(workoutItems, id: \.self ) { pickedWorkout in
+                        VStack(alignment: .center) {
+                            ForEach(self.workoutItems, id: \.self ) { pickedWorkout in
                                 Button(action: {
                                     self.showModal.toggle()
                                 }) {
                                     WorkoutCard(workout: pickedWorkout)
-                                    .deleteDisabled(true)
+                                        .deleteDisabled(true)
                                 }.sheet(isPresented: self.$showModal, onDismiss: {
                                     self.showModal = false
                                 }, content: {
                                     return WorkoutDetailView(workout: pickedWorkout)
                                 })
-                                    
-
-                    }.onDelete(perform: deleteItem)
-
-
+                                
+                                
+                            }.onDelete(perform: self.deleteItem)
+                        }.padding(.leading, (UIScreen.screenWidth-WORKOUT_CARD_WIDTH)/2)
                 }
-                .padding(.leading, 50)
                 .navigationBarTitle("Your Workouts")
-
+                    
                 .navigationBarItems(trailing:
                     EditButton()
                 )
-                .navigationBarItems(leading: Button(action: {
+                    .navigationBarItems(leading: Button(action: {
                         
                     }) {
                         Text("Analytics")
                     })
             }
-
+            
         }
-                
+        
     }
     
     func deleteItem(indexSet: IndexSet) {
@@ -77,7 +81,7 @@ struct WorkoutHistoryView: View {
         }
     }
     
-
+    
 }
 
 struct WorkoutView_Previews: PreviewProvider {

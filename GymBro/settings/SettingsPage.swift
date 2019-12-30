@@ -13,11 +13,14 @@ struct SettingsPage: View {
         NavigationView {
 
                 List {
-                    Text("User")
+                    NavigationLink(destination: UserView(), label: {
+                        Text("User")
+                    })
                     Text("Premium")
                     Text("Metrics")
-                    Text("Info")
-                }
+                    NavigationLink(destination: InfoView(), label: {
+                        Text("Info")
+                    })                }
             .padding(.leading, 50)
             .navigationBarTitle("Settings")
 

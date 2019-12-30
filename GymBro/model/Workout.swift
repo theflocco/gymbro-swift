@@ -27,6 +27,11 @@ extension Workout {
         return request
     }
     
+    public func addEmptyExercise() {
+        let exercise = Exercise()
+        exerciseList?.adding(exercise)
+    }
+    
     @objc(addExerciseListObject:)
     @NSManaged public func addToExerciseList(_ value: Exercise)
 

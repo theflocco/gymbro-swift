@@ -68,7 +68,7 @@ struct WorkoutCard: View {
 struct WorkoutCard_Previews: PreviewProvider {
     static var previews: some View {
         let context = NSManagedObjectContext()
-        return WorkoutCard(workout: createWorkout(context: context))
+        return WorkoutCard(workout: createWorkout(context: context)).previewLayout(.sizeThatFits)
     }
 }
 
