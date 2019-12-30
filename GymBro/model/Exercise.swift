@@ -27,6 +27,7 @@ public class Exercise: NSManagedObject, Identifiable {
     @NSManaged public var exerciseName: String?
     @NSManaged public var repetitions: NSNumber?
     @NSManaged public var weight: NSNumber?
+    @NSManaged public var sets: NSNumber?
     
 }
 

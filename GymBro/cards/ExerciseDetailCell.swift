@@ -12,10 +12,13 @@ struct ExerciseDetailCell: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     
     @State var exercise: Exercise
+    @State private var setField: String = ""
     @State private var repField: String = ""
     @State private var weightField: String = ""
     @State var inEditMode: Bool = false
     func save() {
+        
+        self.exercise.sets = Int(setField) as! NSNumber
         self.exercise.repetitions = Int(repField) as! NSNumber
         self.exercise.weight = Int(weightField) as! NSNumber
         do {
@@ -40,6 +43,7 @@ struct ExerciseDetailCell: View {
                     .font(Font.headline)
                 HStack {
                     VStack(alignment: HorizontalAlignment.leading) {
+                        Text("Sets: ")
                         Text("Repetitions: ")
                         Text("Weight:")
                     }
@@ -47,6 +51,14 @@ struct ExerciseDetailCell: View {
                     Spacer()
                     if (inEditMode) {
                         VStack(alignment: .trailing) {
+                            TextField(exercise.sets!.description, text: self.$setField) {
+                                    UIApplication.shared.endEditing()
+                                self.inEditMode = false
+                                self.save()
+                            }.keyboardType(UIKeyboardType.numbersAndPunctuation)
+                            .font(Font.headline)
+                            .foregroundColor(Color.black)
+                            
                             TextField(exercise.repetitions!.description, text: self.$repField) {
                                     UIApplication.shared.endEditing()
                                 self.inEditMode = false
@@ -54,6 +66,7 @@ struct ExerciseDetailCell: View {
                             }.keyboardType(UIKeyboardType.numbersAndPunctuation)
                             .font(Font.headline)
                             .foregroundColor(Color.black)
+                            
                             TextField(exercise.repetitions!.description, text: self.$weightField) {
                                     UIApplication.shared.endEditing()
                                 self.inEditMode = false
@@ -64,6 +77,7 @@ struct ExerciseDetailCell: View {
                         }
                     } else {
                         VStack(alignment: .trailing) {
+                            Text(exercise.sets!.description)
                             Text(exercise.repetitions!.description)
                             Text(exercise.weight!.description)
                         }
@@ -74,6 +88,7 @@ struct ExerciseDetailCell: View {
             }
         .onTapGesture(perform: {
             if (!self.inEditMode) {
+                self.setField = self.exercise.sets!.description
                 self.weightField = self.exercise.weight!.description
                 self.repField = self.exercise.repetitions!.description
             }

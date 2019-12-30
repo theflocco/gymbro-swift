@@ -14,9 +14,8 @@ struct SettingsPage: View {
 
                 List {
                     Text("User")
-                    Text("Analytics")
                     Text("Premium")
-                    Text("Settings")
+                    Text("Metrics")
                     Text("Info")
                 }
             .padding(.leading, 50)

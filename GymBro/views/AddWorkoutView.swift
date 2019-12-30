@@ -17,6 +17,7 @@ struct AddWorkoutView: View {
     @State private var exerciseTitle: String = ""
     @State private var repetitions: String = ""
     @State private var weight: String = ""
+    @State private var sets: String = ""
     @State private var didTap: Bool = false
     @State private var showModal = false
     @State var pickedExerciseType: ExerciseType?
@@ -63,10 +64,12 @@ struct AddWorkoutView: View {
                                 Text("Workout name: ")
                                     .font(.headline)
                                     .padding(.bottom, 8)
+                                Text("Sets: ")
+                                    .font(.headline)
+                                    .padding(.bottom, 8)
                                     Text("Repetitions: ")
                                         .font(.headline)
                                         .padding(.bottom, 8)
-
                                     Text("Weight: ")
                                         .font(.headline)
                                         .padding(.bottom, 8)
@@ -78,10 +81,15 @@ struct AddWorkoutView: View {
                                     UIApplication.shared.endEditing()
                                     
                                 }
+                                TextField("Add Sets", text: self.$sets) {
+                                    UIApplication.shared.endEditing()
+                                }
+                                .keyboardType(.numberPad)
                                 
                                 TextField("Add Repetitions", text: self.$repetitions) {
                                     UIApplication.shared.endEditing()
                                 }
+                                    
                                 .keyboardType(.numberPad)
                                 TextField("Add Weight", text: self.$weight) {
                                     UIApplication.shared.endEditing()
@@ -96,9 +104,9 @@ struct AddWorkoutView: View {
                     .lineLimit(nil)
                     .multilineTextAlignment(.center)
                     Button(action: {
-                        if (!self.repetitions.isEmpty && !self.weight.isEmpty) {
+                        if (!self.repetitions.isEmpty && !self.weight.isEmpty && !self.sets.isEmpty) {
                             if let unwrappedExerciseType = self.pickedExerciseType {
-                                self.submittedExercises.append(submitExercise(repetitions: self.repetitions, weight: self.weight, pickedExerciseType: unwrappedExerciseType, managedObjectContext: self.managedObjectContext))
+                                self.submittedExercises.append(submitExercise(sets: self.sets, repetitions: self.repetitions, weight: self.weight, pickedExerciseType: unwrappedExerciseType, managedObjectContext: self.managedObjectContext))
                             }
                         } else {
                             self.showingAlert = true
@@ -112,30 +120,29 @@ struct AddWorkoutView: View {
                         
                     }.alert(isPresented: $showingAlert) {
                         Alert(title: Text("Important message"), message: Text("Pick an exercise & fill in repetitions & weight"), dismissButton: .default(Text("Got it!")))
-                    }
-                    
+                    }.padding(.bottom, 8)
                     if submittedExercises.count > 0 {
                         VStack {
                             ForEach(submittedExercises, id: \.self) {
                                 (submittedExercise: Exercise) in
                                 ZStack {
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .frame(width: 300, height: 100)
-                                        .foregroundColor(.clear)
-                                        .background(Color.blue)
-                                        .shadow(radius: 5.0)
+                                    RoundedRectangle(cornerRadius: 11)
+                                    .foregroundColor(Color.blue)
+
                                     VStack {
                                         Text(submittedExercise.exerciseName!)
                                             .bold()
                                         HStack {
-                                            Text("Reps: "); Text(submittedExercise.repetitions!.description)
+                                            Text(submittedExercise.sets!.description + "x" + submittedExercise.repetitions!.description)
                                         }
                                         HStack {
-                                            Text("Weight: "); Text(submittedExercise.weight!.description)
+                                            Text(submittedExercise.weight!.description + " kg")
                                         }
                                         
                                     }
-                                }
+                                }.frame(width: 300, height: 100)
+                                    .shadow(radius: 5.0)
+
                                 .scaleEffect(x: 1, y: -1, anchor: .center)
                             }.onDelete(perform: deleteItem)
                             
@@ -163,9 +170,9 @@ struct AddWorkoutView: View {
 
 
 
-func submitExercise(repetitions: String, weight: String, pickedExerciseType: ExerciseType, managedObjectContext: NSManagedObjectContext) -> Exercise {
-    // TODO: not nullsafe
+func submitExercise(sets: String, repetitions: String, weight: String, pickedExerciseType: ExerciseType, managedObjectContext: NSManagedObjectContext) -> Exercise {
     let newExercise = Exercise(context: managedObjectContext)
+    newExercise.sets = Int(sets) as NSNumber?
     newExercise.exerciseName = pickedExerciseType.rawValue
     newExercise.repetitions = Int(repetitions) as NSNumber?
     newExercise.weight = Int(weight) as NSNumber?
