@@ -33,7 +33,6 @@ struct WorkoutHistoryView: View {
             } else {
             
                 List {
-                        VStack(alignment: .center) {
                             ForEach(self.workoutItems, id: \.self ) { pickedWorkout in
                                 Button(action: {
                                     self.showModal.toggle()
@@ -48,7 +47,8 @@ struct WorkoutHistoryView: View {
                                 
                                 
                             }.onDelete(perform: self.deleteItem)
-                        }.padding(.leading, (UIScreen.screenWidth-WORKOUT_CARD_WIDTH)/2)
+                    .padding(.leading, (UIScreen.screenWidth-WORKOUT_CARD_WIDTH)/2)
+                        
                 }
                 .navigationBarTitle("Your Workouts")
                     

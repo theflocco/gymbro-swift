@@ -18,7 +18,7 @@ struct ExerciseDetailCell: View {
     @State var inEditMode: Bool = false
     
     let SMALL_FONT_SIZE: CGFloat = 22
-
+    
     
     func save() {
         self.exercise.exerciseName = exerciseNameField
@@ -32,7 +32,7 @@ struct ExerciseDetailCell: View {
         }
     }
     
-
+    
     
     var body: some View {
         ZStack {
@@ -49,21 +49,25 @@ struct ExerciseDetailCell: View {
                         Button(action: {
                             print("edit mode toggled")
                             self.inEditMode = false
+                            UIApplication.shared.endEditing()
+                            self.save()
                         }) {
                             Image(systemName: "checkmark.circle.fill")
                         }
                         
                         TextField(exercise.exerciseName!.description, text: self.$exerciseNameField) {
-                                UIApplication.shared.endEditing()
+                            UIApplication.shared.endEditing()
                             self.inEditMode = false
                             self.save()
                         }
                         .font(.system(size: 26))
                         
-
+                        
                         Button(action: {
                             print("delete pressed")
                             self.exercise.managedObjectContext?.delete(self.exercise)
+                            UIApplication.shared.endEditing()
+                            self.save()
                         }) {
                             Image(systemName: "minus.circle")
                         }
@@ -71,10 +75,10 @@ struct ExerciseDetailCell: View {
                 } else {
                     Text(exercise.exerciseName!)
                         .font(.system(size: 26))
-                    .bold()
-
+                        .bold()
+                    
                 }
-
+                
                 HStack {
                     VStack(alignment: HorizontalAlignment.leading) {
                         Text("Sets")
@@ -86,30 +90,30 @@ struct ExerciseDetailCell: View {
                     Spacer()
                     if (inEditMode) {
                         VStack(alignment: .trailing) {
-                                TextField(exercise.sets!.description, text: self.$setField) {
-                                        UIApplication.shared.endEditing()
-                                    self.inEditMode = false
-                                    self.save()
-                                }.keyboardType(UIKeyboardType.numbersAndPunctuation)
-                                    .font(.system(size: SMALL_FONT_SIZE))
-                                .foregroundColor(Color.black)
-
-                            
-                            TextField(exercise.repetitions!.description, text: self.$repField) {
-                                    UIApplication.shared.endEditing()
-                                self.inEditMode = false
-                                self.save()
-                            }.keyboardType(UIKeyboardType.numbersAndPunctuation)
-                            .font(.system(size: SMALL_FONT_SIZE))
-                            .foregroundColor(Color.black)
-                            
-                            TextField(exercise.repetitions!.description, text: self.$weightField) {
-                                    UIApplication.shared.endEditing()
+                            TextField(exercise.sets!.description, text: self.$setField) {
+                                UIApplication.shared.endEditing()
                                 self.inEditMode = false
                                 self.save()
                             }.keyboardType(UIKeyboardType.numbersAndPunctuation)
                                 .font(.system(size: SMALL_FONT_SIZE))
-                            .foregroundColor(Color.black)
+                                .foregroundColor(Color.black)
+                            
+                            
+                            TextField(exercise.repetitions!.description, text: self.$repField) {
+                                UIApplication.shared.endEditing()
+                                self.inEditMode = false
+                                self.save()
+                            }.keyboardType(UIKeyboardType.numbersAndPunctuation)
+                                .font(.system(size: SMALL_FONT_SIZE))
+                                .foregroundColor(Color.black)
+                            
+                            TextField(exercise.repetitions!.description, text: self.$weightField) {
+                                UIApplication.shared.endEditing()
+                                self.inEditMode = false
+                                self.save()
+                            }.keyboardType(UIKeyboardType.numbersAndPunctuation)
+                                .font(.system(size: SMALL_FONT_SIZE))
+                                .foregroundColor(Color.black)
                         }
                     } else {
                         VStack(alignment: .trailing) {
@@ -122,26 +126,26 @@ struct ExerciseDetailCell: View {
                     }
                 }
             }
-        .onTapGesture(perform: {
-            if (!self.inEditMode) {
-                self.exerciseNameField = self.exercise.exerciseName!.description
-                self.setField = self.exercise.sets!.description
-                self.weightField = self.exercise.weight!.description
-                self.repField = self.exercise.repetitions!.description
-            }
-
-            self.inEditMode = true
-        })
-            .lineLimit(nil)
-            .padding()
-            .multilineTextAlignment(.center)
-            .foregroundColor(Color.white)
-
-
+            .onTapGesture(perform: {
+                if (!self.inEditMode) {
+                    self.exerciseNameField = self.exercise.exerciseName!.description
+                    self.setField = self.exercise.sets!.description
+                    self.weightField = self.exercise.weight!.description
+                    self.repField = self.exercise.repetitions!.description
+                }
+                
+                self.inEditMode = true
+            })
+                .lineLimit(nil)
+                .padding()
+                .multilineTextAlignment(.center)
+                .foregroundColor(Color.white)
+            
+            
         }.frame(width: 300.0, height: 120.0)
-        .padding(.all, 20)
-
-
+            .padding(.all, 20)
+        
+        
     }
 }
 
