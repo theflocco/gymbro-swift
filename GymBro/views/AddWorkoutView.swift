@@ -104,7 +104,7 @@ struct AddWorkoutView: View {
                     .lineLimit(nil)
                     .multilineTextAlignment(.center)
                     Button(action: {
-                        if (!self.repetitions.isEmpty && !self.weight.isEmpty && !self.sets.isEmpty) {
+                        if (!self.repetitions.isEmpty && !self.weight.isEmpty && !self.sets.isEmpty && !(self.pickedExerciseType == nil)) {
                             if let unwrappedExerciseType = self.pickedExerciseType {
                                 self.submittedExercises.append(submitExercise(sets: self.sets, repetitions: self.repetitions, weight: self.weight, pickedExerciseType: unwrappedExerciseType, managedObjectContext: self.managedObjectContext))
                             }
@@ -119,7 +119,7 @@ struct AddWorkoutView: View {
                             .foregroundColor(.blue)
                         
                     }.alert(isPresented: $showingAlert) {
-                        Alert(title: Text("Important message"), message: Text("Pick an exercise & fill in repetitions & weight"), dismissButton: .default(Text("Got it!")))
+                        Alert(title: Text("Important message"), message: Text("Pick an exercise & fill in sets, repetitions & weight"), dismissButton: .default(Text("Got it!")))
                     }.padding(.bottom, 8)
                     if submittedExercises.count > 0 {
                         VStack {
