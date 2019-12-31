@@ -13,15 +13,16 @@ struct ExerciseDetailCell: View {
     @State var exercise: Exercise
     @State private var setField: String = ""
     @State private var repField: String = ""
-    @State private var exerciseNameField: String = ""
     @State private var weightField: String = ""
     @State var inEditMode: Bool = false
+    @State var pickedExerciseType: String = ""
+    @State var showModal: Bool = false
     
     let SMALL_FONT_SIZE: CGFloat = 22
     
     
     func save() {
-        self.exercise.exerciseName = exerciseNameField
+        self.exercise.exerciseName = self.pickedExerciseType
         self.exercise.sets = Int(setField) as! NSNumber
         self.exercise.repetitions = Int(repField) as! NSNumber
         self.exercise.weight = Int(weightField) as! NSNumber
@@ -55,12 +56,16 @@ struct ExerciseDetailCell: View {
                             Image(systemName: "checkmark.circle.fill")
                         }
                         
-                        TextField(exercise.exerciseName!.description, text: self.$exerciseNameField) {
-                            UIApplication.shared.endEditing()
-                            self.inEditMode = false
-                            self.save()
-                        }
-                        .font(.system(size: 26))
+                        Button(action: {
+                            self.showModal = true
+                        }) {
+                            Text(self.pickedExerciseType)
+                        }.sheet(isPresented: self.$showModal, content: {
+                            ExercisePickerView(didSelectExerciseType: { exerciseType in
+                                print(exerciseType)
+                                self.pickedExerciseType = exerciseType
+                            }).environment(\.managedObjectContext, self.managedObjectContext)
+                        })
                         
                         
                         Button(action: {
@@ -128,7 +133,7 @@ struct ExerciseDetailCell: View {
             }
             .onTapGesture(perform: {
                 if (!self.inEditMode) {
-                    self.exerciseNameField = self.exercise.exerciseName!.description
+                    self.pickedExerciseType = self.exercise.exerciseName!.description
                     self.setField = self.exercise.sets!.description
                     self.weightField = self.exercise.weight!.description
                     self.repField = self.exercise.repetitions!.description

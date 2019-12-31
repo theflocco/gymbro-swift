@@ -38,16 +38,20 @@ struct WorkoutHistoryView: View {
             
                 List {
                             ForEach(self.workoutItems, id: \.self ) { pickedWorkout in
-                                Button(action: {
-                                    self.showModal.toggle()
-                                }) {
+                                
+                                NavigationLink(destination: WorkoutDetailView(workout: pickedWorkout)) {
                                     WorkoutCard(workout: pickedWorkout)
-                                        .deleteDisabled(true)
-                                }.sheet(isPresented: self.$showModal, onDismiss: {
-                                    self.showModal = false
-                                }, content: {
-                                    return WorkoutDetailView(workout: pickedWorkout)
-                                })
+                                }
+//                                Button(action: {
+//                                    self.showModal.toggle()
+//                                }) {
+//                                    WorkoutCard(workout: pickedWorkout)
+//                                        .deleteDisabled(true)
+//                                }.sheet(isPresented: self.$showModal, onDismiss: {
+//                                    self.showModal = false
+//                                }, content: {
+//                                    return WorkoutDetailView(workout: pickedWorkout)
+//                                })
                                 
                                 
                             }.onDelete(perform: self.deleteItem)
