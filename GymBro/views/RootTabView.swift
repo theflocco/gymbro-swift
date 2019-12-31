@@ -41,7 +41,8 @@ struct RootTabView: View {
                     Image(systemName: "gear")
                     Text("Settings")
             }.tag(2)
-        }.sheet(isPresented: self.$showModal) { AddWorkoutView(submittedExercises: []).environment(\.managedObjectContext, self.managedObjectContext)
+        }.foregroundColor(Color("FrostTwo"))
+        .sheet(isPresented: self.$showModal) { AddWorkoutView(submittedExercises: []).environment(\.managedObjectContext, self.managedObjectContext)
             .onAppear() {
                 print("modal disappeared")
                 self.selectedView = 0

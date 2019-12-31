@@ -27,8 +27,10 @@ struct WorkoutDetailView: View {
                         ExerciseDetailCell(exercise: pickedExercise)
                     }
                 }
+                .padding(.bottom, 20)
                 HStack {
-                    Button(action: { self.presentation.wrappedValue.dismiss() }) { Text("Dismiss") }.keyboardResponsive()
+                    Button(action: { self.presentation.wrappedValue.dismiss() }) { Text("Dismiss")                        .foregroundColor(Color("FrostTwo"))
+                    }.keyboardResponsive()
                     Spacer()
                     Button(action: {
                         print("add button tapped")
@@ -39,7 +41,8 @@ struct WorkoutDetailView: View {
                         newExercise.weight = 0
                         self.workout.addToExerciseList(newExercise)
                     }) {
-                        Image(systemName: "plus.square.fill").scaleEffect(1.5)
+                        Image(systemName: "plus.square.fill").scaleEffect(1.5)                        .foregroundColor(Color("FrostTwo"))
+
                     }
                 }.padding(.horizontal, 50)
             }
@@ -48,7 +51,7 @@ struct WorkoutDetailView: View {
         }
         .navigationBarTitle("WorkoutDetailView")
     }
-
+    
     func saveContext() {
         do {
             try self.managedObjectContext.save()

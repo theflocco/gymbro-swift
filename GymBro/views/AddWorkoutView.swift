@@ -26,6 +26,7 @@ struct AddWorkoutView: View {
     @State private var showingAlert = false
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
+    let FONT_SIZE : CGFloat = 22
     
     func submitWorkout() {
         let newWorkout = createWorkout(workoutName: self.workoutName, repetitions: self.repetitions, weight: self.weight, managedObjectContext: self.managedObjectContext, exerciseList: submittedExercises)
@@ -47,8 +48,17 @@ struct AddWorkoutView: View {
                                 .font(.largeTitle)
                                 .fontWeight(.bold)
                         } else {
-                            
-                            Text("Select Exercise")
+                             HStack {
+                                 Image(systemName: "tag")
+                                     .font(.headline)
+                                 Text("Select exercise")
+                                     .fontWeight(.semibold)
+                                    .font(.headline)
+                             }
+                             .padding()
+                             .foregroundColor(.white)
+                             .background(LinearGradient(gradient: Gradient(colors: [Color("FrostOne"), Color("FrostTwo")]), startPoint: .leading, endPoint: .trailing))
+                             .cornerRadius(40)
                         }
                     }.sheet(isPresented: self.$showModal, content: {
                         ExercisePickerView(didSelectExerciseType: { exerciseType in
@@ -62,38 +72,37 @@ struct AddWorkoutView: View {
                         HStack {
                             VStack(alignment: HorizontalAlignment.leading) {
                                 Text("Workout name: ")
-                                    .font(.headline)
+                                    .font(.system(size: FONT_SIZE, weight: .bold, design: .default))
                                     .padding(.bottom, 8)
                                 Text("Sets: ")
-                                    .font(.headline)
+                                    .font(.system(size: FONT_SIZE))
                                     .padding(.bottom, 8)
                                     Text("Repetitions: ")
-                                        .font(.headline)
+                                        .font(.system(size: FONT_SIZE))
                                         .padding(.bottom, 8)
                                     Text("Weight: ")
-                                        .font(.headline)
+                                        .font(.system(size: FONT_SIZE))
                                         .padding(.bottom, 8)
                             }
                             .padding(.leading, 8)
                             Spacer()
                             VStack(alignment: HorizontalAlignment.trailing) {
-                                TextField("Name your workout", text: self.$workoutName) {
+                                TextField("Add name", text: self.$workoutName) {
                                     UIApplication.shared.endEditing()
                                     
-                                }
-                                TextField("Add Sets", text: self.$sets) {
+                                }.font(.system(size: FONT_SIZE, weight: .bold, design: .default))
+                                TextField("Add sets", text: self.$sets) {
                                     UIApplication.shared.endEditing()
-                                }
+                                }.font(.system(size: FONT_SIZE))
                                 .keyboardType(.numberPad)
                                 
-                                TextField("Add Repetitions", text: self.$repetitions) {
+                                TextField("Add repetitions", text: self.$repetitions) {
                                     UIApplication.shared.endEditing()
-                                }
-                                    
+                                }.font(.system(size: FONT_SIZE))
                                 .keyboardType(.numberPad)
-                                TextField("Add Weight", text: self.$weight) {
+                                TextField("Add weight", text: self.$weight) {
                                     UIApplication.shared.endEditing()
-                                }
+                                }.font(.system(size: FONT_SIZE))
                                 .keyboardType(.numberPad)
                             }
                             .padding()
@@ -111,6 +120,12 @@ struct AddWorkoutView: View {
                         } else {
                             self.showingAlert = true
                         }
+                        UIApplication.shared.endEditing()
+
+                        self.exercisePicked = false
+                        self.repetitions = ""
+                        self.weight = ""
+                        self.sets = ""
 
                     }) {
                     
@@ -126,8 +141,7 @@ struct AddWorkoutView: View {
                             ForEach(submittedExercises, id: \.self) {
                                 (submittedExercise: Exercise) in
                                 ZStack {
-                                    RoundedRectangle(cornerRadius: 11)
-                                    .foregroundColor(Color.blue)
+
 
                                     VStack {
                                         Text(submittedExercise.exerciseName!)
@@ -140,13 +154,17 @@ struct AddWorkoutView: View {
                                         }
                                         
                                     }
-                                }.frame(width: 300, height: 100)
-                                    .shadow(radius: 5.0)
 
-                                .scaleEffect(x: 1, y: -1, anchor: .center)
+
+                                }
                             }.onDelete(perform: deleteItem)
-                            
-                            
+                            .frame(width: 300, height: 100)
+                            .shadow(radius: 5.0)
+                            .foregroundColor(.white)
+                            .background(LinearGradient(gradient: Gradient(colors: [Color("DeepSpaceOne"), Color("DeepSpaceTwo")]), startPoint: .leading, endPoint: .trailing))
+                            .scaleEffect(x: 1, y: -1, anchor: .center)
+                            .cornerRadius(20)
+
                         }.scaleEffect(x: 1, y: -1, anchor: .center)
                         
                         

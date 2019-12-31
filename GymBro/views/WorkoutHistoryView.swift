@@ -59,6 +59,7 @@ struct WorkoutHistoryView: View {
                         
                     }) {
                         Text("Analytics")
+                        .foregroundColor(Color("FrostTwo"))
                     })
             }
             

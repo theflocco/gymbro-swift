@@ -41,7 +41,7 @@ struct ExerciseDetailCell: View {
                     .foregroundColor(Color.orange)
             } else {
                 RoundedRectangle(cornerRadius: 11)
-                    .foregroundColor(Color.blue)
+                    .foregroundColor(Color("FrostTwo"))
             }
             VStack(alignment: .center) {
                 if (inEditMode) {

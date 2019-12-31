@@ -30,21 +30,18 @@ extension Color {
 struct WorkoutCard: View {
     @State var workout: Workout
     let formatter = DateFormatter()
-
-    let cardColor = Color(hex: "138086")
-    let cardColorFinish = Color(hex: "3C4CAD")
     let textColor = Color.white;
     
     
     var body: some View {
         formatter.dateStyle = .medium
         let dateString = self.formatter.string(from: workout.date!)
+        let exerciseListSize = workout.exerciseList!.count
         let view = ZStack {
-            RoundedRectangle(cornerRadius: 20)
-                .frame(width: 300.0, height: 140.0)
-                .foregroundColor(.clear)
-            .background(LinearGradient(gradient: Gradient(colors: [cardColor, cardColorFinish]), startPoint: .bottomLeading, endPoint: .topTrailing))
-            .shadow(radius: 5.0)
+//            RoundedRectangle(cornerRadius: 20)
+//                .frame(width: 300.0, height: 140.0)
+//            .background(LinearGradient(gradient: Gradient(colors: [Color("FrostOne"), Color("FrostTwo")]), startPoint: .bottomLeading, endPoint: .topTrailing))
+//            .shadow(radius: 5.0)
 
             VStack(spacing: 20) {
                 Text(workout.name!)
@@ -54,12 +51,17 @@ struct WorkoutCard: View {
                 Text(dateString)
                 .foregroundColor(textColor)
             }
+        .frame(width: 250.0, height: 100.0)
+                .shadow(radius: 5.0)
+        .padding()
+        .foregroundColor(.white)
+        .background(LinearGradient(gradient: Gradient(colors: [Color("FrostOne"), Color("FrostTwo")]), startPoint: .leading, endPoint: .trailing))
+        .cornerRadius(20)
             VStack (spacing: 20){
-                HStack {
-                    Text("Click for more")
+                    Text(exerciseListSize > 1 ? exerciseListSize.description + " exercises" : exerciseListSize.description + " exercise")
                         .foregroundColor(textColor)
-                }
-            }
+
+            }.padding(.bottom, -15)
         }
         return view
     }
@@ -67,13 +69,12 @@ struct WorkoutCard: View {
 
 struct WorkoutCard_Previews: PreviewProvider {
     static var previews: some View {
-        let context = NSManagedObjectContext()
-        return WorkoutCard(workout: createWorkout(context: context)).previewLayout(.sizeThatFits)
+        WorkoutCard(workout: mockWorkout()).previewLayout(.sizeThatFits)
     }
 }
 
-func createWorkout(context: NSManagedObjectContext) -> Workout {
-    let workout = Workout(context: context)
+func mockWorkout() -> Workout {
+    let workout = Workout()
     workout.name = "Workout"
     workout.date = Date.init()
     let exercise = Exercise()
