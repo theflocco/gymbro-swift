@@ -42,17 +42,6 @@ struct WorkoutHistoryView: View {
                                 NavigationLink(destination: WorkoutDetailView(workout: pickedWorkout)) {
                                     WorkoutCard(workout: pickedWorkout)
                                 }
-//                                Button(action: {
-//                                    self.showModal.toggle()
-//                                }) {
-//                                    WorkoutCard(workout: pickedWorkout)
-//                                        .deleteDisabled(true)
-//                                }.sheet(isPresented: self.$showModal, onDismiss: {
-//                                    self.showModal = false
-//                                }, content: {
-//                                    return WorkoutDetailView(workout: pickedWorkout)
-//                                })
-                                
                                 
                             }.onDelete(perform: self.deleteItem)
                     .padding(.leading, (UIScreen.screenWidth-WORKOUT_CARD_WIDTH)/2)

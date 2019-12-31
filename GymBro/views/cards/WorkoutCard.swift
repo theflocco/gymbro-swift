@@ -49,6 +49,10 @@ struct WorkoutCard: View {
                     Text(dateString)
                         .foregroundColor(textColor)
                     Spacer()
+                    Text(workout.maxVolume!.description + " M")
+                        .bold()
+                        .foregroundColor(Color.orange)
+                    Spacer()
                     Text(exerciseListSize > 1 ? exerciseListSize.description + " " + exercises : exerciseListSize.description + " " + exercise)
                         .foregroundColor(textColor)
                 }

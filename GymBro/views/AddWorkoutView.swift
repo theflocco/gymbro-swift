@@ -31,7 +31,7 @@ struct AddWorkoutView: View {
     let SELECT_EXERCISE = NSLocalizedString("Select exercise", comment: "")
     let WORKOUT_NAME = NSLocalizedString("Workout name", comment: "")
     let REPETITIONS = NSLocalizedString("Repetitions", comment: "")
-    let WEIGHT = NSLocalizedString("Weight (lbs)", comment: "")
+    let WEIGHT = NSLocalizedString("Weight (kg)", comment: "")
     let SAVE = NSLocalizedString("Save", comment: "")
     
     func submitWorkout() {
@@ -234,7 +234,7 @@ func createWorkout(workoutName: String, repetitions: String, weight: String, man
     workout.name = workoutName
     
     insertIntoSet(of: workout, from: exerciseList)
-    
+    workout.calculateMovedVol()
     do {
         try managedObjectContext.save()
     } catch {

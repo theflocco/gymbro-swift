@@ -21,8 +21,14 @@ struct WorkoutDetailView: View {
         let exerciseList = workout.exerciseList?.allObjects as! [Exercise]
         return NavigationView {
             ScrollView(showsIndicators: false) {
+                HStack {
+                    Text("Max volume")
+
+                    Text(" " + (workout.calculateMovedVol()*1000).description + " " + "kg")
+                        .font(.system(size: 26))
+                }
                 Text("\(workout.date!, formatter: dateFormatter)")
-                    .font(.system(size: 26))
+
                 Text(tapCardsToEdit)
                     .font(.caption)
                     .foregroundColor(Color.gray)

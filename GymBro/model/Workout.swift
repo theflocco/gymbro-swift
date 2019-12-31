@@ -15,6 +15,18 @@ public class Workout: NSManagedObject, Identifiable {
     @NSManaged var name: String?
     @NSManaged var date: Date?
     @NSManaged var exerciseList: NSSet?
+    @NSManaged var maxVolume: NSNumber?
+    
+    func calculateMovedVol() -> Double {
+        var sumVolume = 0.0
+        if (!(exerciseList?.allObjects.isEmpty)!) {
+            for exercise: Exercise in self.exerciseList!.allObjects as! [Exercise]{
+                sumVolume += Double(exercise.sets!) * Double(exercise.repetitions!) * Double(exercise.weight!)
+            }
+        }
+        self.maxVolume = sumVolume/1000 as NSNumber
+        return sumVolume/1000
+    }
     
 }
 
@@ -26,6 +38,7 @@ extension Workout {
         request.sortDescriptors = [sortDescriptor]
         return request
     }
+
 
     
     public func addEmptyExercise() {

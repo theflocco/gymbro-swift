@@ -31,6 +31,7 @@ struct ExerciseDetailCell: View {
         } catch {
             print(error)
         }
+        self.inEditMode = false
     }
     
     
@@ -88,37 +89,33 @@ struct ExerciseDetailCell: View {
                     VStack(alignment: HorizontalAlignment.leading) {
                         Text("Sets")
                         Text("Repetitions")
-                        Text("Weight (lbs)")
+                        Text("Weight (kg)")
                     }
                     .font(.system(size: SMALL_FONT_SIZE))
                     .padding(.bottom, 8)
                     Spacer()
                     if (inEditMode) {
                         VStack(alignment: .trailing) {
+                            
                             TextField(exercise.sets!.description, text: self.$setField) {
                                 UIApplication.shared.endEditing()
-                                self.inEditMode = false
-                                self.save()
-                            }.keyboardType(UIKeyboardType.numberPad)
-                                .font(.system(size: SMALL_FONT_SIZE))
+                            }.keyboardType(.numberPad)
+                                .font(.headline)
                                 .foregroundColor(Color.black)
-                            
-                            
+
                             TextField(exercise.repetitions!.description, text: self.$repField) {
                                 UIApplication.shared.endEditing()
-                                self.inEditMode = false
-                                self.save()
-                            }.keyboardType(UIKeyboardType.numberPad)
-                                .font(.system(size: SMALL_FONT_SIZE))
+                            }.keyboardType(.numberPad)
+                                .font(.headline)
                                 .foregroundColor(Color.black)
-                            
-                            TextField(exercise.repetitions!.description, text: self.$weightField) {
+
+                            TextField(exercise.weight!.description, text: self.$weightField) {
                                 UIApplication.shared.endEditing()
-                                self.inEditMode = false
-                                self.save()
-                            }.keyboardType(UIKeyboardType.numberPad)
-                                .font(.system(size: SMALL_FONT_SIZE))
+
+                            }.keyboardType(.numberPad)
+                                .font(.headline)
                                 .foregroundColor(Color.black)
+
                         }
                     } else {
                         VStack(alignment: .trailing) {
@@ -126,7 +123,7 @@ struct ExerciseDetailCell: View {
                             Text(exercise.repetitions!.description).bold()
                             Text(exercise.weight!.description).bold()
                         }
-                        .font(.system(size: SMALL_FONT_SIZE))
+                        .font(.headline)
                         .foregroundColor(Color.white)
                     }
                 }
@@ -137,9 +134,10 @@ struct ExerciseDetailCell: View {
                     self.setField = self.exercise.sets!.description
                     self.weightField = self.exercise.weight!.description
                     self.repField = self.exercise.repetitions!.description
+                    self.inEditMode = true
+
                 }
                 
-                self.inEditMode = true
             })
                 .lineLimit(nil)
                 .padding()
@@ -147,9 +145,7 @@ struct ExerciseDetailCell: View {
                 .foregroundColor(Color.white)
             
             
-        }.frame(width: 300.0, height: 120.0)
-            .padding(.all, 20)
-        .shadow(radius: 5)
+        }.frame(width: 300.0, height: 140.0)
         
         
     }

@@ -12,7 +12,7 @@
 "Select exercise" = "Übung auswählen";
 "Workout name" = "Workoutname";
 "Repetitions" = "Wiederholungen";
-"Weight (lbs)" = "Gewicht (kg)";
+"Weight (kg)" = "Gewicht (kg)";
 "Save" = "Speichern";
 "Important message" = "Hoppla!";
 "Pick an exercise & fill in sets, repetitions & weight" = "Wähle eine Übung und fülle Sets, Wiederholungen & Gewicht aus.";
@@ -22,3 +22,4 @@
 "User" = "Benutzer";
 "Number of Workouts" = "Anzahl Workouts";
 "Add entry" = "Eintrag hinzufügen";
+"Max volume" = "Gesamtvolumen";
