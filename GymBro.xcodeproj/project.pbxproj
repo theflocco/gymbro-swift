@@ -11,7 +11,6 @@
 		E47915C623BA710D00A74EEF /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47915C523BA710D00A74EEF /* InfoView.swift */; };
 		E4E30B4023B747C600224A72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E30B3F23B747C600224A72 /* AppDelegate.swift */; };
 		E4E30B4223B747C600224A72 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E30B4123B747C600224A72 /* SceneDelegate.swift */; };
-		E4E30B4723B747C600224A72 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E30B4623B747C600224A72 /* ContentView.swift */; };
 		E4E30B4923B747C900224A72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4E30B4823B747C900224A72 /* Assets.xcassets */; };
 		E4E30B4C23B747C900224A72 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4E30B4B23B747C900224A72 /* Preview Assets.xcassets */; };
 		E4E30B4F23B747C900224A72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4E30B4D23B747C900224A72 /* LaunchScreen.storyboard */; };
@@ -35,7 +34,6 @@
 		E4E30B3C23B747C600224A72 /* GymBro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GymBro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4E30B3F23B747C600224A72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4E30B4123B747C600224A72 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E4E30B4623B747C600224A72 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E4E30B4823B747C900224A72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E4E30B4B23B747C900224A72 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E4E30B4E23B747C900224A72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -74,13 +72,6 @@
 			path = workoutDetail;
 			sourceTree = "<group>";
 		};
-		E47915C123BA6EA200A74EEF /* starter */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = starter;
-			sourceTree = "<group>";
-		};
 		E47915C223BA6F0300A74EEF /* settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,14 +102,12 @@
 			isa = PBXGroup;
 			children = (
 				E47915C223BA6F0300A74EEF /* settings */,
-				E47915C123BA6EA200A74EEF /* starter */,
 				E4E6ECF023B8D37D00CC364E /* util */,
 				E4E30B6723B748C800224A72 /* cards */,
 				E4E30B6223B748B700224A72 /* model */,
 				E4E30B5623B7481400224A72 /* views */,
 				E4E30B3F23B747C600224A72 /* AppDelegate.swift */,
 				E4E30B4123B747C600224A72 /* SceneDelegate.swift */,
-				E4E30B4623B747C600224A72 /* ContentView.swift */,
 				E4E30B4823B747C900224A72 /* Assets.xcassets */,
 				E4E30B4D23B747C900224A72 /* LaunchScreen.storyboard */,
 				E4E30B5023B747C900224A72 /* Info.plist */,
@@ -253,7 +242,6 @@
 				E4E30B6923B748EC00224A72 /* WorkoutCard.swift in Sources */,
 				E4E6ECF223B8D38B00CC364E /* KeyboardResponsiveModifier.swift in Sources */,
 				E4E30B6123B748AD00224A72 /* GymBro.xcdatamodeld in Sources */,
-				E4E30B4723B747C600224A72 /* ContentView.swift in Sources */,
 				E4E30B6B23B7490D00224A72 /* ExerciseDetailCell.swift in Sources */,
 				E4E6ECF423B8F80900CC364E /* SettingsPage.swift in Sources */,
 				E4E30B6623B748B800224A72 /* Exercise.swift in Sources */,

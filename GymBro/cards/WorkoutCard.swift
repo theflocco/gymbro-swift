@@ -55,7 +55,7 @@ struct WorkoutCard: View {
                 .shadow(radius: 5.0)
         .padding()
         .foregroundColor(.white)
-        .background(LinearGradient(gradient: Gradient(colors: [Color("FrostOne"), Color("FrostTwo")]), startPoint: .leading, endPoint: .trailing))
+        .background(LinearGradient(gradient: Gradient(colors: [Color("FrostTwo"), Color("FrostOne")]), startPoint: .leading, endPoint: .trailing))
         .cornerRadius(20)
             VStack (spacing: 20){
                     Text(exerciseListSize > 1 ? exerciseListSize.description + " exercises" : exerciseListSize.description + " exercise")

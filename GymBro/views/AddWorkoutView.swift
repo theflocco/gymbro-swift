@@ -39,140 +39,140 @@ struct AddWorkoutView: View {
     
     var body: some View {
         return NavigationView {
-                ScrollView {
-                    Button(action: {
-                        self.showModal.toggle()
-                    }) {
-                        if exercisePicked {
-                            Text(self.pickedExerciseType!.rawValue)
-                                .font(.largeTitle)
-                                .fontWeight(.bold)
-                        } else {
-                             HStack {
-                                 Image(systemName: "tag")
-                                     .font(.headline)
-                                 Text("Select exercise")
-                                     .fontWeight(.semibold)
-                                    .font(.headline)
-                             }
-                             .padding()
-                             .foregroundColor(.white)
-                             .background(LinearGradient(gradient: Gradient(colors: [Color("FrostOne"), Color("FrostTwo")]), startPoint: .leading, endPoint: .trailing))
-                             .cornerRadius(40)
-                        }
-                    }.sheet(isPresented: self.$showModal, content: {
-                        ExercisePickerView(didSelectExerciseType: { exerciseType in
-                            print(exerciseType)
-                            self.pickedExerciseType = exerciseType
-                            self.exercisePicked = true
-                            
-                        })
-                    })
-                    VStack(alignment: .center) {
-                        HStack {
-                            VStack(alignment: HorizontalAlignment.leading) {
-                                Text("Workout name: ")
-                                    .font(.system(size: FONT_SIZE, weight: .bold, design: .default))
-                                    .padding(.bottom, 8)
-                                Text("Sets: ")
-                                    .font(.system(size: FONT_SIZE))
-                                    .padding(.bottom, 8)
-                                    Text("Repetitions: ")
-                                        .font(.system(size: FONT_SIZE))
-                                        .padding(.bottom, 8)
-                                    Text("Weight: ")
-                                        .font(.system(size: FONT_SIZE))
-                                        .padding(.bottom, 8)
-                            }
-                            .padding(.leading, 8)
-                            Spacer()
-                            VStack(alignment: HorizontalAlignment.trailing) {
-                                TextField("Add name", text: self.$workoutName) {
-                                    UIApplication.shared.endEditing()
-                                    
-                                }.font(.system(size: FONT_SIZE, weight: .bold, design: .default))
-                                TextField("Add sets", text: self.$sets) {
-                                    UIApplication.shared.endEditing()
-                                }.font(.system(size: FONT_SIZE))
-                                .keyboardType(.numberPad)
-                                
-                                TextField("Add repetitions", text: self.$repetitions) {
-                                    UIApplication.shared.endEditing()
-                                }.font(.system(size: FONT_SIZE))
-                                .keyboardType(.numberPad)
-                                TextField("Add weight", text: self.$weight) {
-                                    UIApplication.shared.endEditing()
-                                }.font(.system(size: FONT_SIZE))
-                                .keyboardType(.numberPad)
-                            }
-                            .padding()
-
-                        }
-
-                    }
-                    .lineLimit(nil)
-                    .multilineTextAlignment(.center)
-                    Button(action: {
-                        if (!self.repetitions.isEmpty && !self.weight.isEmpty && !self.sets.isEmpty && !(self.pickedExerciseType == nil)) {
-                            if let unwrappedExerciseType = self.pickedExerciseType {
-                                self.submittedExercises.append(submitExercise(sets: self.sets, repetitions: self.repetitions, weight: self.weight, pickedExerciseType: unwrappedExerciseType, managedObjectContext: self.managedObjectContext))
-                            }
-                        } else {
-                            self.showingAlert = true
-                        }
-                        UIApplication.shared.endEditing()
-
-                        self.exercisePicked = false
-                        self.repetitions = ""
-                        self.weight = ""
-                        self.sets = ""
-
-                    }) {
-                    
-                        Image(systemName: "plus.square.fill.on.square.fill")
+            ScrollView {
+                Button(action: {
+                    self.showModal.toggle()
+                }) {
+                    if exercisePicked {
+                        Text(self.pickedExerciseType!.rawValue)
                             .font(.largeTitle)
-                            .foregroundColor(.blue)
+                            .fontWeight(.bold)
+                    } else {
+                        HStack {
+                            Image(systemName: "tag")
+                                .font(.headline)
+                            Text("Select exercise")
+                                .fontWeight(.semibold)
+                                .font(.headline)
+                        }
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(LinearGradient(gradient: Gradient(colors: [Color("FrostOne"), Color("FrostTwo")]), startPoint: .leading, endPoint: .trailing))
+                        .cornerRadius(40)
+                    }
+                }.sheet(isPresented: self.$showModal, content: {
+                    ExercisePickerView(didSelectExerciseType: { exerciseType in
+                        print(exerciseType)
+                        self.pickedExerciseType = exerciseType
+                        self.exercisePicked = true
                         
-                    }.alert(isPresented: $showingAlert) {
-                        Alert(title: Text("Important message"), message: Text("Pick an exercise & fill in sets, repetitions & weight"), dismissButton: .default(Text("Got it!")))
-                    }.padding(.bottom, 8)
-                    if submittedExercises.count > 0 {
-                        VStack {
-                            ForEach(submittedExercises, id: \.self) {
-                                (submittedExercise: Exercise) in
-                                ZStack {
-
-
-                                    VStack {
-                                        Text(submittedExercise.exerciseName!)
-                                            .bold()
-                                        HStack {
-                                            Text(submittedExercise.sets!.description + "x" + submittedExercise.repetitions!.description)
-                                        }
-                                        HStack {
-                                            Text(submittedExercise.weight!.description + " kg")
-                                        }
-                                        
+                    })
+                })
+                VStack(alignment: .center) {
+                    HStack {
+                        VStack(alignment: HorizontalAlignment.leading) {
+                            Text("Workout name: ")
+                                .font(.system(size: FONT_SIZE, weight: .bold, design: .default))
+                                .padding(.bottom, 8)
+                            Text("Sets: ")
+                                .font(.system(size: FONT_SIZE))
+                                .padding(.bottom, 8)
+                            Text("Repetitions: ")
+                                .font(.system(size: FONT_SIZE))
+                                .padding(.bottom, 8)
+                            Text("Weight: ")
+                                .font(.system(size: FONT_SIZE))
+                                .padding(.bottom, 8)
+                        }
+                        .padding(.leading, 8)
+                        Spacer()
+                        VStack(alignment: HorizontalAlignment.trailing) {
+                            TextField("Add name", text: self.$workoutName) {
+                                UIApplication.shared.endEditing()
+                                
+                            }.font(.system(size: FONT_SIZE, weight: .bold, design: .default))
+                            TextField("Add sets", text: self.$sets) {
+                                UIApplication.shared.endEditing()
+                            }.font(.system(size: FONT_SIZE))
+                                .keyboardType(.numberPad)
+                            
+                            TextField("Add repetitions", text: self.$repetitions) {
+                                UIApplication.shared.endEditing()
+                            }.font(.system(size: FONT_SIZE))
+                                .keyboardType(.numberPad)
+                            TextField("Add weight", text: self.$weight) {
+                                UIApplication.shared.endEditing()
+                            }.font(.system(size: FONT_SIZE))
+                                .keyboardType(.numberPad)
+                        }
+                        .padding()
+                        
+                    }
+                    
+                }
+                .lineLimit(nil)
+                .multilineTextAlignment(.center)
+                Button(action: {
+                    if (!self.repetitions.isEmpty && !self.weight.isEmpty && !self.sets.isEmpty && !(self.pickedExerciseType == nil)) {
+                        if let unwrappedExerciseType = self.pickedExerciseType {
+                            self.submittedExercises.append(submitExercise(sets: self.sets, repetitions: self.repetitions, weight: self.weight, pickedExerciseType: unwrappedExerciseType, managedObjectContext: self.managedObjectContext))
+                        }
+                    } else {
+                        self.showingAlert = true
+                    }
+                    UIApplication.shared.endEditing()
+                    
+                    self.exercisePicked = false
+                    self.repetitions = ""
+                    self.weight = ""
+                    self.sets = ""
+                    
+                }) {
+                    
+                    Image(systemName: "plus.square.fill.on.square.fill")
+                        .font(.largeTitle)
+                        .foregroundColor(.blue)
+                    
+                }.alert(isPresented: $showingAlert) {
+                    Alert(title: Text("Important message"), message: Text("Pick an exercise & fill in sets, repetitions & weight"), dismissButton: .default(Text("Got it!")))
+                }.padding(.bottom, 8)
+                if submittedExercises.count > 0 {
+                    VStack {
+                        ForEach(submittedExercises, id: \.self) {
+                            (submittedExercise: Exercise) in
+                            ZStack {
+                                
+                                
+                                VStack {
+                                    Text(submittedExercise.exerciseName!)
+                                        .bold()
+                                    HStack {
+                                        Text(submittedExercise.sets!.description + "x" + submittedExercise.repetitions!.description)
                                     }
-
-
+                                    HStack {
+                                        Text(submittedExercise.weight!.description + " kg")
+                                    }
+                                    
                                 }
-                            }.onDelete(perform: deleteItem)
+                                
+                                
+                            }
+                        }.onDelete(perform: deleteItem)
                             .frame(width: 300, height: 100)
                             .shadow(radius: 5.0)
                             .foregroundColor(.white)
                             .background(LinearGradient(gradient: Gradient(colors: [Color("DeepSpaceOne"), Color("DeepSpaceTwo")]), startPoint: .leading, endPoint: .trailing))
                             .scaleEffect(x: 1, y: -1, anchor: .center)
                             .cornerRadius(20)
-
-                        }.scaleEffect(x: 1, y: -1, anchor: .center)
-                        
-                        
-                    }
+                            .padding()
+                    }.scaleEffect(x: 1, y: -1, anchor: .center)
                     
                     
                 }
-
+                
+                
+            }
+                
             .navigationBarTitle("Add a new Workout")
             .navigationBarItems(trailing:
                 Button(action: {

@@ -20,8 +20,13 @@ struct WorkoutDetailView: View {
         var exerciseList = workout.exerciseList?.allObjects as! [Exercise]
         return NavigationView {
             ScrollView(showsIndicators: false) {
-                Text("Workout " + workout.name!).bold()
+                Text(workout.name!).bold()
+                    .font(.largeTitle)
                 Text("\(workout.date!, formatter: dateFormatter)")
+                    .font(.headline)
+                Text("Tap cards to edit")
+                    .font(.caption)
+                    .foregroundColor(Color.gray)
                 ForEach(exerciseList, id: \.self) { (pickedExercise: Exercise) in
                     VStack {
                         ExerciseDetailCell(exercise: pickedExercise)
