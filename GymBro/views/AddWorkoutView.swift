@@ -27,7 +27,12 @@ struct AddWorkoutView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     let FONT_SIZE : CGFloat = 22
-    
+    let ADD_A_NEW_WORKOUT = NSLocalizedString("Add a new Workout", comment: "")
+    let SELECT_EXERCISE = NSLocalizedString("Select exercise", comment: "")
+    let WORKOUT_NAME = NSLocalizedString("Workout name", comment: "")
+    let REPETITIONS = NSLocalizedString("Repetitions", comment: "")
+    let WEIGHT = NSLocalizedString("Weight (pounds)", comment: "")
+    let SAVE = NSLocalizedString("Save", comment: "")
     func submitWorkout() {
         let newWorkout = createWorkout(workoutName: self.workoutName, repetitions: self.repetitions, weight: self.weight, managedObjectContext: self.managedObjectContext, exerciseList: submittedExercises)
         self.presentationMode.wrappedValue.dismiss()
@@ -35,6 +40,15 @@ struct AddWorkoutView: View {
     
     func deleteItem(indexSet: IndexSet) {
         self.submittedExercises.remove(at: indexSet.first!)
+    }
+    
+    fileprivate func cleanUpAndResign() {
+        UIApplication.shared.endEditing()
+        
+        self.exercisePicked = false
+        self.repetitions = ""
+        self.weight = ""
+        self.sets = ""
     }
     
     var body: some View {
@@ -51,7 +65,7 @@ struct AddWorkoutView: View {
                         HStack {
                             Image(systemName: "tag")
                                 .font(.headline)
-                            Text("Select exercise")
+                            Text(SELECT_EXERCISE)
                                 .fontWeight(.semibold)
                                 .font(.headline)
                         }
@@ -71,16 +85,16 @@ struct AddWorkoutView: View {
                 VStack(alignment: .center) {
                     HStack {
                         VStack(alignment: HorizontalAlignment.leading) {
-                            Text("Workout name: ")
+                            Text(WORKOUT_NAME)
                                 .font(.system(size: FONT_SIZE, weight: .bold, design: .default))
                                 .padding(.bottom, 8)
-                            Text("Sets: ")
+                            Text("Sets")
                                 .font(.system(size: FONT_SIZE))
                                 .padding(.bottom, 8)
-                            Text("Repetitions: ")
+                            Text(REPETITIONS)
                                 .font(.system(size: FONT_SIZE))
                                 .padding(.bottom, 8)
-                            Text("Weight: ")
+                            Text(WEIGHT)
                                 .font(.system(size: FONT_SIZE))
                                 .padding(.bottom, 8)
                         }
@@ -120,12 +134,7 @@ struct AddWorkoutView: View {
                     } else {
                         self.showingAlert = true
                     }
-                    UIApplication.shared.endEditing()
-                    
-                    self.exercisePicked = false
-                    self.repetitions = ""
-                    self.weight = ""
-                    self.sets = ""
+                    self.cleanUpAndResign()
                     
                 }) {
                     
@@ -173,12 +182,16 @@ struct AddWorkoutView: View {
                 
             }
                 
-            .navigationBarTitle("Add a new Workout")
+            .navigationBarTitle(ADD_A_NEW_WORKOUT)
             .navigationBarItems(trailing:
                 Button(action: {
-                    self.submitWorkout()
+                    if (!self.workoutName.isEmpty) {
+                        self.submitWorkout()
+                    } else {
+                        self.showingAlert = true
+                    }
                 }) {
-                    Text("Save")
+                    Text(SAVE)
             })
             
             

@@ -83,7 +83,7 @@ struct ExerciseDetailCell: View {
                     VStack(alignment: HorizontalAlignment.leading) {
                         Text("Sets")
                         Text("Repetitions")
-                        Text("Weight")
+                        Text("Weight (pounds)")
                     }
                     .font(.system(size: SMALL_FONT_SIZE))
                     .padding(.bottom, 8)

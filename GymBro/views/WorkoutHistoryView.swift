@@ -18,6 +18,7 @@ struct WorkoutHistoryView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(fetchRequest: Workout.getAllWorkoutItems()) var workoutItems: FetchedResults<Workout>
     @State private var showModal: Bool = false;
+    let yourWorkouts = NSLocalizedString("Your Workouts", comment: "")
     
     let WORKOUT_CARD_WIDTH: CGFloat = 300
     
@@ -50,7 +51,7 @@ struct WorkoutHistoryView: View {
                     .padding(.leading, (UIScreen.screenWidth-WORKOUT_CARD_WIDTH)/2)
                         
                 }
-                .navigationBarTitle("Your Workouts")
+                .navigationBarTitle(self.yourWorkouts)
                     
                 .navigationBarItems(trailing:
                     EditButton()

@@ -13,7 +13,8 @@ struct WorkoutDetailView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @State var workout: Workout
     let dateFormatter = DateFormatter()
-    
+    let tapCardsToEdit = NSLocalizedString("Tap cards to edit", comment: "")
+    let dismiss = NSLocalizedString("Dismiss", comment: "")
     
     var body: some View {
         dateFormatter.dateStyle = .medium
@@ -21,10 +22,10 @@ struct WorkoutDetailView: View {
         return NavigationView {
             ScrollView(showsIndicators: false) {
                 Text(workout.name!).bold()
-                    .font(.largeTitle)
+                    .font(.system(size: 22))
                 Text("\(workout.date!, formatter: dateFormatter)")
                     .font(.headline)
-                Text("Tap cards to edit")
+                Text(tapCardsToEdit)
                     .font(.caption)
                     .foregroundColor(Color.gray)
                 ForEach(exerciseList, id: \.self) { (pickedExercise: Exercise) in
@@ -34,20 +35,20 @@ struct WorkoutDetailView: View {
                 }
                 .padding(.bottom, 20)
                 HStack {
-                    Button(action: { self.presentation.wrappedValue.dismiss() }) { Text("Dismiss")                        .foregroundColor(Color("FrostTwo"))
+                    Button(action: { self.presentation.wrappedValue.dismiss() }) { Text(dismiss)                        .foregroundColor(Color("FrostTwo"))
                     }.keyboardResponsive()
                     Spacer()
                     Button(action: {
                         print("add button tapped")
                         let newExercise = Exercise(context: self.workout.managedObjectContext!)
-                        newExercise.exerciseName = "Tap to edit"
+                        newExercise.exerciseName = self.tapCardsToEdit
                         newExercise.repetitions = 0
                         newExercise.sets = 0
                         newExercise.weight = 0
                         self.workout.addToExerciseList(newExercise)
                     }) {
                         Image(systemName: "plus.square.fill").scaleEffect(1.5)                        .foregroundColor(Color("FrostTwo"))
-
+                        
                     }
                 }.padding(.horizontal, 50)
             }
