@@ -10,10 +10,12 @@
 "Add Workout" = "Workout hinzufügen";
 "Add a new Workout" = "Neues Workout";
 "Select exercise" = "Übung auswählen";
-"Workout name" = "Workout Name";
+"Workout name" = "Workoutname";
 "Repetitions" = "Wiederholungen";
 "Weight (lbs)" = "Gewicht (kg)";
 "Save" = "Speichern";
 "Important message" = "Hoppla!";
 "Pick an exercise & fill in sets, repetitions & weight" = "Wähle eine Übung und fülle Sets, Wiederholungen & Gewicht aus.";
 "Got it!" = "Alles klar!";
+"Add some Workouts!" = "Füge neue Workouts hinzu!";
+"Your personal Workout tracker!" = "Dein persönlicher Workout-Tracker!";

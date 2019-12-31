@@ -16,7 +16,7 @@ struct WorkoutDetailView: View {
     let tapCardsToEdit = NSLocalizedString("Tap cards to edit", comment: "")
     let tapMeToEdit = NSLocalizedString("Tap me to edit", comment: "")
     let dismiss = NSLocalizedString("Dismiss", comment: "")
-    
+
     var body: some View {
         dateFormatter.dateStyle = .medium
         let exerciseList = workout.exerciseList?.allObjects as! [Exercise]
@@ -45,7 +45,9 @@ struct WorkoutDetailView: View {
                         newExercise.exerciseName = self.tapMeToEdit
                         self.workout.addToExerciseList(newExercise)
                     }) {
-                        Image(systemName: "plus.square.fill").scaleEffect(1.5)                        .foregroundColor(Color("FrostTwo"))
+                        Image(systemName: "plus.square.fill")
+                            .font(.system(size: 30, weight: .medium))
+                        .foregroundColor(Color("FrostTwo"))
                         
                     }
                 }.padding(.horizontal, 50)

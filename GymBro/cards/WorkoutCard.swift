@@ -31,18 +31,14 @@ struct WorkoutCard: View {
     @State var workout: Workout
     let formatter = DateFormatter()
     let textColor = Color.white;
-    
+    let exercises = NSLocalizedString("exercises", comment: "")
+    let exercise = NSLocalizedString("exercise", comment: "")
     
     var body: some View {
         formatter.dateStyle = .medium
         let dateString = self.formatter.string(from: workout.date!)
         let exerciseListSize = workout.exerciseList!.count
         let view = ZStack {
-//            RoundedRectangle(cornerRadius: 20)
-//                .frame(width: 300.0, height: 140.0)
-//            .background(LinearGradient(gradient: Gradient(colors: [Color("FrostOne"), Color("FrostTwo")]), startPoint: .bottomLeading, endPoint: .topTrailing))
-//            .shadow(radius: 5.0)
-
             VStack(spacing: 20) {
                 Text(workout.name!)
                     .font(.largeTitle)
@@ -51,14 +47,14 @@ struct WorkoutCard: View {
                 Text(dateString)
                 .foregroundColor(textColor)
             }
-        .frame(width: 250.0, height: 100.0)
+        .frame(width: 300, height: 100.0)
                 .shadow(radius: 5.0)
         .padding()
         .foregroundColor(.white)
         .background(LinearGradient(gradient: Gradient(colors: [Color("FrostTwo"), Color("FrostOne")]), startPoint: .leading, endPoint: .trailing))
         .cornerRadius(20)
             VStack (spacing: 20){
-                    Text(exerciseListSize > 1 ? exerciseListSize.description + " exercises" : exerciseListSize.description + " exercise")
+                    Text(exerciseListSize > 1 ? exerciseListSize.description + " " + exercises : exerciseListSize.description + " " + exercise)
                         .foregroundColor(textColor)
 
             }.padding(.bottom, -15)

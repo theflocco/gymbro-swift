@@ -33,6 +33,7 @@ struct AddWorkoutView: View {
     let REPETITIONS = NSLocalizedString("Repetitions", comment: "")
     let WEIGHT = NSLocalizedString("Weight (lbs)", comment: "")
     let SAVE = NSLocalizedString("Save", comment: "")
+    
     func submitWorkout() {
         createWorkout(workoutName: self.workoutName, repetitions: self.repetitions, weight: self.weight, managedObjectContext: self.managedObjectContext, exerciseList: submittedExercises)
         self.presentationMode.wrappedValue.dismiss()

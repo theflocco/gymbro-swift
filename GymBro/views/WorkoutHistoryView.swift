@@ -19,8 +19,7 @@ struct WorkoutHistoryView: View {
     @FetchRequest(fetchRequest: Workout.getAllWorkoutItems()) var workoutItems: FetchedResults<Workout>
     @State private var showModal: Bool = false;
     let yourWorkouts = NSLocalizedString("Your Workouts", comment: "")
-    
-    let WORKOUT_CARD_WIDTH: CGFloat = 300
+    let WORKOUT_CARD_WIDTH: CGFloat = 350
     
     
     init() {
@@ -29,8 +28,12 @@ struct WorkoutHistoryView: View {
     var body: some View {
         NavigationView {
             if (workoutItems.count == 0) {
-                Text("Add some Workouts!")
-                    .bold().font(.largeTitle)
+                VStack {
+                    Text("GymBro").bold().font(.largeTitle)
+                    Text("Your personal Workout tracker!").font(.headline)
+                    Spacer()
+                    AddSomeWorkoutsCard()
+                }
             } else {
             
                 List {

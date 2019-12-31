@@ -10,6 +10,7 @@
 		E47915C423BA6F0F00A74EEF /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47915C323BA6F0F00A74EEF /* UserView.swift */; };
 		E47915C623BA710D00A74EEF /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47915C523BA710D00A74EEF /* InfoView.swift */; };
 		E4CD7F0423BB613E00B01CA9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E4CD7F0623BB613E00B01CA9 /* Localizable.strings */; };
+		E4CD7F0823BB73C200B01CA9 /* AddSomeWorkoutsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CD7F0723BB73C200B01CA9 /* AddSomeWorkoutsCard.swift */; };
 		E4E30B4023B747C600224A72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E30B3F23B747C600224A72 /* AppDelegate.swift */; };
 		E4E30B4223B747C600224A72 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E30B4123B747C600224A72 /* SceneDelegate.swift */; };
 		E4E30B4923B747C900224A72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4E30B4823B747C900224A72 /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 		E47915C523BA710D00A74EEF /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		E4CD7F0123BB5EC800B01CA9 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		E4CD7F0523BB613E00B01CA9 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E4CD7F0723BB73C200B01CA9 /* AddSomeWorkoutsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSomeWorkoutsCard.swift; sourceTree = "<group>"; };
 		E4E30B3C23B747C600224A72 /* GymBro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GymBro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4E30B3F23B747C600224A72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4E30B4123B747C600224A72 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 			children = (
 				E4E30B6C23B7492100224A72 /* ExercisePickerView.swift */,
 				E4E30B6823B748EB00224A72 /* WorkoutCard.swift */,
+				E4CD7F0723BB73C200B01CA9 /* AddSomeWorkoutsCard.swift */,
 			);
 			path = cards;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 				E47915C423BA6F0F00A74EEF /* UserView.swift in Sources */,
 				E47915C623BA710D00A74EEF /* InfoView.swift in Sources */,
 				E4E30B5E23B7489000224A72 /* WorkoutDetailView.swift in Sources */,
+				E4CD7F0823BB73C200B01CA9 /* AddSomeWorkoutsCard.swift in Sources */,
 				E4E30B6923B748EC00224A72 /* WorkoutCard.swift in Sources */,
 				E4E6ECF223B8D38B00CC364E /* KeyboardResponsiveModifier.swift in Sources */,
 				E4E30B6123B748AD00224A72 /* GymBro.xcdatamodeld in Sources */,
