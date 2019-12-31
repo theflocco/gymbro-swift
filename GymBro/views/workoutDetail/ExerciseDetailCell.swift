@@ -122,12 +122,12 @@ struct ExerciseDetailCell: View {
                         }
                     } else {
                         VStack(alignment: .trailing) {
-                            Text(exercise.sets!.description)
-                            Text(exercise.repetitions!.description)
-                            Text(exercise.weight!.description)
+                            Text(exercise.sets!.description).bold()
+                            Text(exercise.repetitions!.description).bold()
+                            Text(exercise.weight!.description).bold()
                         }
                         .font(.system(size: SMALL_FONT_SIZE))
-                        .foregroundColor(Color.black)
+                        .foregroundColor(Color.white)
                     }
                 }
             }
@@ -149,6 +149,7 @@ struct ExerciseDetailCell: View {
             
         }.frame(width: 300.0, height: 120.0)
             .padding(.all, 20)
+        .shadow(radius: 5)
         
         
     }

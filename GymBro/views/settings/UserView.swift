@@ -23,7 +23,6 @@ struct UserView: View {
                 Spacer()
                 List {
                     Text("Number of Workouts: " + count.description)
-                    Text("iCloud sync enabled: false")
                 }
 
             }

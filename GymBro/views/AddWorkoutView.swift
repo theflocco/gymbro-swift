@@ -74,6 +74,7 @@ struct AddWorkoutView: View {
                         .foregroundColor(.white)
                         .background(LinearGradient(gradient: Gradient(colors: [Color("FrostOne"), Color("FrostTwo")]), startPoint: .leading, endPoint: .trailing))
                         .cornerRadius(40)
+                    .shadow(radius: 5)
                     }
                 }.sheet(isPresented: self.$showModal, content: {
                     ExercisePickerView(didSelectExerciseType: { exerciseType in
@@ -142,10 +143,13 @@ struct AddWorkoutView: View {
                     self.cleanUpAndResign()
                     
                 }) {
-                    
-                    Image(systemName: "plus.square.fill.on.square.fill")
-                        .font(.largeTitle)
-                        .foregroundColor(.blue)
+                    HStack {
+                        Image(systemName: "plus.square.fill.on.square.fill")
+                            .font(.largeTitle)
+                            .foregroundColor(.blue)
+                        Text("Add entry")
+                    }
+
                     
                 }.alert(isPresented: $showingAlert) {
                     Alert(title: Text("Important message"), message: Text("Pick an exercise & fill in sets, repetitions & weight"), dismissButton: .default(Text("Got it!")))

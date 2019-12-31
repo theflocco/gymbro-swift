@@ -61,6 +61,7 @@ struct WorkoutCard: View {
             .cornerRadius(20)
             
         }
+        .shadow(radius: 5)
         return view
     }
 }

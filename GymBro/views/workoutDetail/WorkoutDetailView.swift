@@ -22,7 +22,7 @@ struct WorkoutDetailView: View {
         return NavigationView {
             ScrollView(showsIndicators: false) {
                 Text("\(workout.date!, formatter: dateFormatter)")
-                    .font(.headline)
+                    .font(.system(size: 26))
                 Text(tapCardsToEdit)
                     .font(.caption)
                     .foregroundColor(Color.gray)
@@ -50,6 +50,7 @@ struct WorkoutDetailView: View {
                         .foregroundColor(.white)
                         .background(LinearGradient(gradient: Gradient(colors: [Color("FrostOne"), Color("FrostTwo")]), startPoint: .leading, endPoint: .trailing))
                         .cornerRadius(40)
+                .shadow(radius: 5)
                     
                 }
             }

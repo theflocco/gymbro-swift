@@ -10,21 +10,26 @@ import SwiftUI
 
 struct InfoView: View {
     let email = "support@ultrafluid.org"
+    let homepage = "www.ultrafluid.org"
     var body: some View {
         NavigationView {
             VStack {
-                Text("UltraFluid.org")
+                Button(action: {
+                    if let url = URL(string: "http://\(self.homepage)") {
+                        UIApplication.shared.open(url)
+                      
+                    }
+                }) {
+                    Text("UltraFluid.org")
+                }.padding()
+                Text("Please send feedback & bug reports to: ")
                 Button(action: {
                     if let url = URL(string: "mailto:\(self.email)") {
-                      if #available(iOS 10.0, *) {
                         UIApplication.shared.open(url)
-                      } else {
-                        UIApplication.shared.openURL(url)
-                      }
                     }
                 }) {
                     Text(self.email)
-                }
+                }.padding()
             }
 
         }.navigationBarTitle("Info")

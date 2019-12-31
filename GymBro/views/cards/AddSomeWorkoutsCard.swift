@@ -24,7 +24,8 @@ struct AddSomeWorkoutsCard: View {
             .padding(.bottom,3)
 
         }
-        .foregroundColor(Color("GymBroColor"))
+    .shadow(radius: 5)
+        .foregroundColor(Color("FrostTwo"))
         .frame(width: 320, height: 100)
         
     }
