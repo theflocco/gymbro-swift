@@ -14,11 +14,12 @@ struct WorkoutDetailView: View {
     @State var workout: Workout
     let dateFormatter = DateFormatter()
     let tapCardsToEdit = NSLocalizedString("Tap cards to edit", comment: "")
+    let tapMeToEdit = NSLocalizedString("Tap me to edit", comment: "")
     let dismiss = NSLocalizedString("Dismiss", comment: "")
     
     var body: some View {
         dateFormatter.dateStyle = .medium
-        var exerciseList = workout.exerciseList?.allObjects as! [Exercise]
+        let exerciseList = workout.exerciseList?.allObjects as! [Exercise]
         return NavigationView {
             ScrollView(showsIndicators: false) {
                 Text(workout.name!).bold()
@@ -41,10 +42,7 @@ struct WorkoutDetailView: View {
                     Button(action: {
                         print("add button tapped")
                         let newExercise = Exercise(context: self.workout.managedObjectContext!)
-                        newExercise.exerciseName = self.tapCardsToEdit
-                        newExercise.repetitions = 0
-                        newExercise.sets = 0
-                        newExercise.weight = 0
+                        newExercise.exerciseName = self.tapMeToEdit
                         self.workout.addToExerciseList(newExercise)
                     }) {
                         Image(systemName: "plus.square.fill").scaleEffect(1.5)                        .foregroundColor(Color("FrostTwo"))

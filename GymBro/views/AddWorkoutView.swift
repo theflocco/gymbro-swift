@@ -31,10 +31,10 @@ struct AddWorkoutView: View {
     let SELECT_EXERCISE = NSLocalizedString("Select exercise", comment: "")
     let WORKOUT_NAME = NSLocalizedString("Workout name", comment: "")
     let REPETITIONS = NSLocalizedString("Repetitions", comment: "")
-    let WEIGHT = NSLocalizedString("Weight (pounds)", comment: "")
+    let WEIGHT = NSLocalizedString("Weight (lbs)", comment: "")
     let SAVE = NSLocalizedString("Save", comment: "")
     func submitWorkout() {
-        let newWorkout = createWorkout(workoutName: self.workoutName, repetitions: self.repetitions, weight: self.weight, managedObjectContext: self.managedObjectContext, exerciseList: submittedExercises)
+        createWorkout(workoutName: self.workoutName, repetitions: self.repetitions, weight: self.weight, managedObjectContext: self.managedObjectContext, exerciseList: submittedExercises)
         self.presentationMode.wrappedValue.dismiss()
     }
     
@@ -119,6 +119,8 @@ struct AddWorkoutView: View {
                             }.font(.system(size: FONT_SIZE))
                                 .keyboardType(.numberPad)
                         }
+                        .multilineTextAlignment(.leading)
+
                         .padding()
                         
                     }

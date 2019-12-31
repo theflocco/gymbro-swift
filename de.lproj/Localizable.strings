@@ -3,6 +3,7 @@
 "Settings" = "Einstellungen";
 "Analytics" = "Analyse";
 "Tap cards to edit" = "Zum Editieren antippen";
+"Tap me to edit" = "Antippen zum Editieren";
 "Dismiss" = "Schließen";
 "exercises" = "Übungen";
 "exercise" = "Übung";
@@ -11,7 +12,7 @@
 "Select exercise" = "Übung auswählen";
 "Workout name" = "Workout Name";
 "Repetitions" = "Wiederholungen";
-"Weight (pounds)" = "Gewicht (kg)";
+"Weight (lbs)" = "Gewicht (kg)";
 "Save" = "Speichern";
 "Important message" = "Hoppla!";
 "Pick an exercise & fill in sets, repetitions & weight" = "Wähle eine Übung und fülle Sets, Wiederholungen & Gewicht aus.";
