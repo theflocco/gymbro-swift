@@ -59,7 +59,7 @@ struct ExerciseDetailCell: View {
                         Button(action: {
                             self.showModal = true
                         }) {
-                            Text(self.pickedExerciseType)
+                            Text(self.pickedExerciseType).font(.system(size: 26)).bold()
                         }.sheet(isPresented: self.$showModal, content: {
                             ExercisePickerView(didSelectExerciseType: { exerciseType in
                                 print(exerciseType)

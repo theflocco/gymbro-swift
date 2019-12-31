@@ -15,15 +15,12 @@ struct WorkoutDetailView: View {
     let dateFormatter = DateFormatter()
     let tapCardsToEdit = NSLocalizedString("Tap cards to edit", comment: "")
     let tapMeToEdit = NSLocalizedString("Tap me to edit", comment: "")
-    let dismiss = NSLocalizedString("Dismiss", comment: "")
 
     var body: some View {
         dateFormatter.dateStyle = .medium
         let exerciseList = workout.exerciseList?.allObjects as! [Exercise]
         return NavigationView {
             ScrollView(showsIndicators: false) {
-                Text(workout.name!).bold()
-                    .font(.system(size: 22))
                 Text("\(workout.date!, formatter: dateFormatter)")
                     .font(.headline)
                 Text(tapCardsToEdit)
@@ -35,27 +32,31 @@ struct WorkoutDetailView: View {
                     }
                 }
                 .padding(.bottom, 20)
-                HStack {
-                    Button(action: { self.presentation.wrappedValue.dismiss() }) { Text(dismiss)                        .foregroundColor(Color("FrostTwo"))
-                    }.keyboardResponsive()
-                    Spacer()
-                    Button(action: {
-                        print("add button tapped")
-                        let newExercise = Exercise(context: self.workout.managedObjectContext!)
+
+                Button(action: {
+                    let newExercise = Exercise(context: self.workout.managedObjectContext!)
                         newExercise.exerciseName = self.tapMeToEdit
                         self.workout.addToExerciseList(newExercise)
-                    }) {
-                        Image(systemName: "plus.square.fill")
-                            .font(.system(size: 30, weight: .medium))
-                        .foregroundColor(Color("FrostTwo"))
-                        
-                    }
-                }.padding(.horizontal, 50)
+                    
+                }) {
+                    HStack {
+                            Image(systemName: "tag")
+                                .font(.subheadline)
+                            Text("Add exercise")
+                                .fontWeight(.semibold)
+                                .font(.subheadline)
+                        }
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(LinearGradient(gradient: Gradient(colors: [Color("FrostOne"), Color("FrostTwo")]), startPoint: .leading, endPoint: .trailing))
+                        .cornerRadius(40)
+                    
+                }
             }
             
             
         }
-        .navigationBarTitle("WorkoutDetailView")
+        .navigationBarTitle(self.workout.name!)
     }
     
     func saveContext() {
