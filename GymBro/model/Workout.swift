@@ -26,6 +26,7 @@ extension Workout {
         request.sortDescriptors = [sortDescriptor]
         return request
     }
+
     
     public func addEmptyExercise() {
         let exercise = Exercise()

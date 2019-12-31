@@ -16,8 +16,6 @@ struct SettingsPage: View {
                     NavigationLink(destination: UserView(), label: {
                         Text("User")
                     })
-                    Text("Premium")
-                    Text("Metrics")
                     NavigationLink(destination: InfoView(), label: {
                         Text("Info")
                     })                }

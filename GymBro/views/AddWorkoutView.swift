@@ -20,7 +20,7 @@ struct AddWorkoutView: View {
     @State private var sets: String = ""
     @State private var didTap: Bool = false
     @State private var showModal = false
-    @State var pickedExerciseType: ExerciseType?
+    @State var pickedExerciseType: String?
     @State private var exercisePicked: Bool = false
     @State var submittedExercises: [Exercise]
     @State private var showingAlert = false
@@ -59,7 +59,7 @@ struct AddWorkoutView: View {
                     self.showModal.toggle()
                 }) {
                     if exercisePicked {
-                        Text(self.pickedExerciseType!.rawValue)
+                        Text(self.pickedExerciseType!)
                             .font(.largeTitle)
                             .fontWeight(.bold)
                     } else {
@@ -81,7 +81,7 @@ struct AddWorkoutView: View {
                         self.pickedExerciseType = exerciseType
                         self.exercisePicked = true
                         
-                    })
+                    }).environment(\.managedObjectContext, self.managedObjectContext)
                 })
                 VStack(alignment: .center) {
                     HStack {
@@ -204,10 +204,10 @@ struct AddWorkoutView: View {
 
 
 
-func submitExercise(sets: String, repetitions: String, weight: String, pickedExerciseType: ExerciseType, managedObjectContext: NSManagedObjectContext) -> Exercise {
+func submitExercise(sets: String, repetitions: String, weight: String, pickedExerciseType: String, managedObjectContext: NSManagedObjectContext) -> Exercise {
     let newExercise = Exercise(context: managedObjectContext)
     newExercise.sets = Int(sets) as NSNumber?
-    newExercise.exerciseName = pickedExerciseType.rawValue
+    newExercise.exerciseName = pickedExerciseType
     newExercise.repetitions = Int(repetitions) as NSNumber?
     newExercise.weight = Int(weight) as NSNumber?
     return newExercise

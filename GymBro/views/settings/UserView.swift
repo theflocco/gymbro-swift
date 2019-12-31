@@ -7,17 +7,23 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct UserView: View {
+    @Environment(\.managedObjectContext) var managedObjectContext
+    @FetchRequest(fetchRequest: Workout.getAllWorkoutItems()) var workoutItems:FetchedResults<Workout>
+    let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Workout")
+
+    
+    
     var body: some View {
-        NavigationView {
+        let count = try! managedObjectContext.count(for: fetchRequest) 
+        return NavigationView {
             VStack {
-                Text("Username").font(.largeTitle)
-                Text("Email Address").font(.subheadline)
                 Spacer()
                 List {
-                        Text("Points: ").listRowBackground(Color.red)
-                    Text("Premium: ").listRowBackground(Color.red)
+                    Text("Number of Workouts: " + count.description)
+                    Text("iCloud sync enabled: false")
                 }
 
             }
