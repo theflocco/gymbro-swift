@@ -94,7 +94,7 @@ struct ExerciseDetailCell: View {
                                 UIApplication.shared.endEditing()
                                 self.inEditMode = false
                                 self.save()
-                            }.keyboardType(UIKeyboardType.numbersAndPunctuation)
+                            }.keyboardType(UIKeyboardType.numberPad)
                                 .font(.system(size: SMALL_FONT_SIZE))
                                 .foregroundColor(Color.black)
                             
@@ -103,7 +103,7 @@ struct ExerciseDetailCell: View {
                                 UIApplication.shared.endEditing()
                                 self.inEditMode = false
                                 self.save()
-                            }.keyboardType(UIKeyboardType.numbersAndPunctuation)
+                            }.keyboardType(UIKeyboardType.numberPad)
                                 .font(.system(size: SMALL_FONT_SIZE))
                                 .foregroundColor(Color.black)
                             
@@ -111,7 +111,7 @@ struct ExerciseDetailCell: View {
                                 UIApplication.shared.endEditing()
                                 self.inEditMode = false
                                 self.save()
-                            }.keyboardType(UIKeyboardType.numbersAndPunctuation)
+                            }.keyboardType(UIKeyboardType.numberPad)
                                 .font(.system(size: SMALL_FONT_SIZE))
                                 .foregroundColor(Color.black)
                         }
