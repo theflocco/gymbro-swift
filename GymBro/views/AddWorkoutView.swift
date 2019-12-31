@@ -83,6 +83,7 @@ struct AddWorkoutView: View {
                         
                     }).environment(\.managedObjectContext, self.managedObjectContext)
                 })
+                
                 VStack(alignment: .center) {
                     HStack {
                         VStack(alignment: HorizontalAlignment.leading) {
@@ -121,12 +122,13 @@ struct AddWorkoutView: View {
                                 .keyboardType(.numberPad)
                         }
                         .multilineTextAlignment(.leading)
-
+                            
                         .padding()
                         
                     }
                     
                 }
+                .padding()
                 .lineLimit(nil)
                 .multilineTextAlignment(.center)
                 Button(action: {

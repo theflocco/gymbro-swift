@@ -16,14 +16,14 @@ extension Color {
         scanner.scanLocation = 0
         var rgbValue: UInt64 = 0
         scanner.scanHexInt64(&rgbValue)
-
+        
         let r = (rgbValue & 0xff0000) >> 16
         let g = (rgbValue & 0xff00) >> 8
         let b = rgbValue & 0xff
-
-
+        
+        
         self.init(red: Double(r) / 0xff, green: Double(g) / 0xff, blue: Double(b) / 0xff)
-
+        
     }
 }
 
@@ -41,23 +41,25 @@ struct WorkoutCard: View {
         let view = ZStack {
             VStack(spacing: 20) {
                 Text(workout.name!)
-                    .font(.largeTitle)
+                    .font(.system(size: 22))
                     .fontWeight(.bold)
                     .foregroundColor(textColor)
-                Text(dateString)
-                .foregroundColor(textColor)
-            }
-        .frame(width: 300, height: 100.0)
-                .shadow(radius: 5.0)
-        .padding()
-        .foregroundColor(.white)
-        .background(LinearGradient(gradient: Gradient(colors: [Color("FrostTwo"), Color("FrostOne")]), startPoint: .leading, endPoint: .trailing))
-        .cornerRadius(20)
-            VStack (spacing: 20){
+                
+                HStack {
+                    Text(dateString)
+                        .foregroundColor(textColor)
+                    Spacer()
                     Text(exerciseListSize > 1 ? exerciseListSize.description + " " + exercises : exerciseListSize.description + " " + exercise)
                         .foregroundColor(textColor)
-
-            }.padding(.bottom, -15)
+                }
+            }
+            .frame(width: 300, height: 75.0)
+            .shadow(radius: 5.0)
+            .padding()
+            .foregroundColor(.white)
+            .background(LinearGradient(gradient: Gradient(colors: [Color("FrostTwo"), Color("FrostOne")]), startPoint: .leading, endPoint: .trailing))
+            .cornerRadius(20)
+            
         }
         return view
     }
