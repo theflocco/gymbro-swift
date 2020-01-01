@@ -31,7 +31,6 @@ struct ExerciseDetailCell: View {
         } catch {
             print(error)
         }
-        self.inEditMode = false
     }
     
     
@@ -72,8 +71,8 @@ struct ExerciseDetailCell: View {
                         Button(action: {
                             print("delete pressed")
                             self.exercise.managedObjectContext?.delete(self.exercise)
-                            UIApplication.shared.endEditing()
                             self.save()
+                            
                         }) {
                             Image(systemName: "minus.circle")
                         }
