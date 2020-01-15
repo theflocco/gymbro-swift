@@ -12,22 +12,14 @@ struct WorkoutDetailView: View {
     @Environment(\.presentationMode) var presentation
     @Environment(\.managedObjectContext) var managedObjectContext
     @State var workout: Workout
-    let dateFormatter = DateFormatter()
     let tapCardsToEdit = NSLocalizedString("Tap cards to edit", comment: "")
     let tapMeToEdit = NSLocalizedString("Tap me to edit", comment: "")
 
     var body: some View {
-        dateFormatter.dateStyle = .medium
         let exerciseList = workout.exerciseList?.allObjects as! [Exercise]
         return NavigationView {
             ScrollView(showsIndicators: false) {
-                HStack {
-                    Text("Max volume")
-
-                    Text(" " + (workout.calculateMovedVol()*1000).description + " " + "kg")
-                        .font(.system(size: 26))
-                }
-                Text("\(workout.date!, formatter: dateFormatter)")
+                WorkoutDetailHeader(workout: workout)
 
                 Text(tapCardsToEdit)
                     .font(.caption)
@@ -37,7 +29,7 @@ struct WorkoutDetailView: View {
                         ExerciseDetailCell(exercise: pickedExercise)
                     }
                 }
-                .padding(.bottom, 20)
+                .padding(.bottom, CGFloat(20))
 
                 Button(action: {
                     let newExercise = Exercise(context: self.workout.managedObjectContext!)
@@ -56,7 +48,7 @@ struct WorkoutDetailView: View {
                         .foregroundColor(.white)
                         .background(LinearGradient(gradient: Gradient(colors: [Color("FrostOne"), Color("FrostTwo")]), startPoint: .leading, endPoint: .trailing))
                         .cornerRadius(40)
-                .shadow(radius: 5)
+                .shadow(radius: CGFloat(5))
                     
                 }
             }
