@@ -12,9 +12,6 @@ struct WorkoutDetailHeader: View {
     @State var workout: Workout
     let dateFormatter = DateFormatter()
 
-    //@Binding var workoutTitle: String
-    //@Binding var workoutDate: String
-    //@Binding var workoutPoints: String
     var body: some View {
         dateFormatter.dateStyle = .medium
 
@@ -30,7 +27,7 @@ struct WorkoutDetailHeader: View {
                 VStack {
                     HStack {
                         Text( (workout.calculateMovedVol()*100).description)
-                            .font(.system(size: 26)).font(.largeTitle)
+                            .font(.system(size: 33)).font(.largeTitle)
                             .foregroundColor(Color.red)
                         Text("points")
 
@@ -43,6 +40,7 @@ struct WorkoutDetailHeader: View {
 
         }
         .padding()
+        .frame(width: 400, height: 200)
         .foregroundColor(.white)
         .background(Color.black)
         .cornerRadius(15)
@@ -54,7 +52,9 @@ struct WorkoutDetailHeader: View {
 
 struct WorkoutDetailHeader_Previews: PreviewProvider {
     static var previews: some View {
-        return Text("Hi")
-       // WorkoutDetailHeader(workoutTitle: .constant("Crusher Workout"), workoutDate: .constant("Dec 31, 2019"), workoutPoints: .constant("7"))
+        let workout = Workout()
+        workout.name = "Workoutname"
+        workout.date = Date.init()
+        return WorkoutDetailHeader(workout: workout)
     }
 }

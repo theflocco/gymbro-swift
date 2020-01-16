@@ -17,44 +17,49 @@ struct WorkoutDetailView: View {
 
     var body: some View {
         let exerciseList = workout.exerciseList?.allObjects as! [Exercise]
-        return NavigationView {
-            ScrollView(showsIndicators: false) {
+        return
+            VStack {
                 WorkoutDetailHeader(workout: workout)
+                Spacer()
+                ZStack(alignment: .bottomTrailing) {
 
-                Text(tapCardsToEdit)
-                    .font(.caption)
-                    .foregroundColor(Color.gray)
-                ForEach(exerciseList, id: \.self) { (pickedExercise: Exercise) in
-                    VStack {
-                        ExerciseDetailCell(exercise: pickedExercise)
-                    }
-                }
-                .padding(.bottom, CGFloat(20))
+                    ScrollView(showsIndicators: false) {
 
-                Button(action: {
-                    let newExercise = Exercise(context: self.workout.managedObjectContext!)
-                        newExercise.exerciseName = self.tapMeToEdit
-                        self.workout.addToExerciseList(newExercise)
-                    
-                }) {
-                    HStack {
-                            Image(systemName: "tag")
-                                .font(.subheadline)
-                            Text("Add exercise")
-                                .fontWeight(.semibold)
-                                .font(.subheadline)
+                        Text(tapCardsToEdit)
+                            .font(.caption)
+                            .foregroundColor(Color.gray)
+                        ForEach(exerciseList, id: \.self) { (pickedExercise: Exercise) in
+                            VStack {
+                                ExerciseDetailCell(exercise: pickedExercise)
+                            }
                         }
-                        .padding()
-                        .foregroundColor(.white)
-                        .background(LinearGradient(gradient: Gradient(colors: [Color("FrostOne"), Color("FrostTwo")]), startPoint: .leading, endPoint: .trailing))
-                        .cornerRadius(40)
-                .shadow(radius: CGFloat(5))
-                    
+                        .padding(.bottom, CGFloat(20))
+                    }
+                    Button(action: {
+                        let newExercise = Exercise(context: self.workout.managedObjectContext!)
+                            newExercise.exerciseName = self.tapMeToEdit
+                            self.workout.addToExerciseList(newExercise)
+                        
+                    }) {
+                        HStack {
+                                Image(systemName: "plus")
+                            .font(Font.title.weight(.semibold))
+                            }
+                            .padding()
+                            .foregroundColor(.white)
+                            .background(LinearGradient(gradient: Gradient(colors: [Color("FrostOne"), Color("FrostTwo")]), startPoint: .leading, endPoint: .trailing))
+                            .cornerRadius(40)
+                    .shadow(radius: CGFloat(5))
+                        
+                    }
+                    .padding()
+                .offset(x: 40)
                 }
+
             }
             
             
-        }
+        
         .navigationBarTitle(self.workout.name!)
     }
     
