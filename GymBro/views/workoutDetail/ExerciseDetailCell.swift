@@ -144,7 +144,9 @@ struct ExerciseDetailCell: View {
                 .foregroundColor(Color.white)
             
             
-        }.frame(width: 300.0, height: 140.0)
+        }
+        .shadow(radius: CGFloat(5))
+        .frame(width: 300.0, height: 140.0)
         
         
     }
