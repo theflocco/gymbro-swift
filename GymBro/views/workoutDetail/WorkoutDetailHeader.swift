@@ -26,7 +26,7 @@ struct WorkoutDetailHeader: View {
                 Spacer()
                 VStack {
                     HStack {
-                        Text( (workout.calculateMovedVol()*100).description)
+                        Text( (String(format: "%.0f", Double(workout.calculateMovedVol()*100))))
                             .font(.system(size: 33)).font(.largeTitle)
                             .foregroundColor(Color.red)
                         Text("points")

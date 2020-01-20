@@ -9,9 +9,9 @@
 import SwiftUI
 
 extension UIScreen{
-   static let screenWidth = UIScreen.main.bounds.size.width
-   static let screenHeight = UIScreen.main.bounds.size.height
-   static let screenSize = UIScreen.main.bounds.size
+    static let screenWidth = UIScreen.main.bounds.size.width
+    static let screenHeight = UIScreen.main.bounds.size.height
+    static let screenSize = UIScreen.main.bounds.size
 }
 
 struct WorkoutHistoryView: View {
@@ -35,29 +35,26 @@ struct WorkoutHistoryView: View {
                     AddSomeWorkoutsCard()
                 }
             } else {
-            
+                
                 List {
-                            ForEach(self.workoutItems, id: \.self ) { pickedWorkout in
-                                
-                                NavigationLink(destination: WorkoutDetailView(workout: pickedWorkout)) {
-                                    WorkoutCard(workout: pickedWorkout)
-                                }
-                                
-                            }.onDelete(perform: self.deleteItem)
-                    .padding(.leading, (UIScreen.screenWidth-WORKOUT_CARD_WIDTH)/2)
+                    ForEach(self.workoutItems, id: \.self ) { pickedWorkout in
                         
+                        NavigationLink(destination: WorkoutDetailView(workout: pickedWorkout)) {
+                            WorkoutCard(workout: pickedWorkout)
+                        }
+                        
+                    }.onDelete(perform: self.deleteItem)
+                        .padding(.leading, (UIScreen.screenWidth-WORKOUT_CARD_WIDTH)/2)
+                    
                 }
                 .navigationBarTitle(self.yourWorkouts)
-                    
-                .navigationBarItems(trailing:
+                .navigationBarItems(leading:                     NavigationLink(destination: BarCard(), label: {
+                    Text("Analytics")
+                }),
+                trailing:
                     EditButton()
                 )
-                    .navigationBarItems(leading: Button(action: {
-                        
-                    }) {
-                        Text("Analytics")
-                        .foregroundColor(Color("FrostTwo"))
-                    })
+
             }
             
         }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E44B596123CFBFDD00151282 /* WorkoutDetailHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44B596023CFBFDD00151282 /* WorkoutDetailHeader.swift */; };
+		E4752F4E23D6489000A817D7 /* BarCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4752F4D23D6489000A817D7 /* BarCard.swift */; };
 		E47915C423BA6F0F00A74EEF /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47915C323BA6F0F00A74EEF /* UserView.swift */; };
 		E47915C623BA710D00A74EEF /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47915C523BA710D00A74EEF /* InfoView.swift */; };
 		E4CD7F0423BB613E00B01CA9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E4CD7F0623BB613E00B01CA9 /* Localizable.strings */; };
@@ -34,6 +35,7 @@
 
 /* Begin PBXFileReference section */
 		E44B596023CFBFDD00151282 /* WorkoutDetailHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailHeader.swift; sourceTree = "<group>"; };
+		E4752F4D23D6489000A817D7 /* BarCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCard.swift; sourceTree = "<group>"; };
 		E47915C323BA6F0F00A74EEF /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 		E47915C523BA710D00A74EEF /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		E4CD7F0123BB5EC800B01CA9 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -80,6 +82,14 @@
 				E44B596023CFBFDD00151282 /* WorkoutDetailHeader.swift */,
 			);
 			path = workoutDetail;
+			sourceTree = "<group>";
+		};
+		E4752F4C23D6488300A817D7 /* analytics */ = {
+			isa = PBXGroup;
+			children = (
+				E4752F4D23D6489000A817D7 /* BarCard.swift */,
+			);
+			path = analytics;
 			sourceTree = "<group>";
 		};
 		E47915C223BA6F0300A74EEF /* settings */ = {
@@ -137,6 +147,7 @@
 		E4E30B5623B7481400224A72 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				E4752F4C23D6488300A817D7 /* analytics */,
 				E4E30B6723B748C800224A72 /* cards */,
 				E47915C223BA6F0300A74EEF /* settings */,
 				E408DF5D23BA91A3006709DD /* workoutDetail */,
@@ -259,6 +270,7 @@
 				E4E30B6923B748EC00224A72 /* WorkoutCard.swift in Sources */,
 				E4E6ECF223B8D38B00CC364E /* KeyboardResponsiveModifier.swift in Sources */,
 				E4E30B6123B748AD00224A72 /* GymBro.xcdatamodeld in Sources */,
+				E4752F4E23D6489000A817D7 /* BarCard.swift in Sources */,
 				E4E30B6B23B7490D00224A72 /* ExerciseDetailCell.swift in Sources */,
 				E4E6ECF423B8F80900CC364E /* SettingsPage.swift in Sources */,
 				E4E30B6623B748B800224A72 /* Exercise.swift in Sources */,
